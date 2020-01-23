@@ -1,8 +1,9 @@
 /**
  * Main
  */
-public class Main {
-
+public class ThanosUniverse {
+    
+    //CSC209 Lab2 62130500230
     public static void main(String[] args) {
         Star earth = new Star(1, false, 4000000000.0, 20000, 100 , 0);
         System.out.println(earth.getVolumn());
@@ -28,6 +29,11 @@ public class Main {
         solarSystem.addStar(Venus);
         solarSystem.printAllStars();
 
+        solarSystem.readStarFromFile(1);
+        solarSystem.readStarFromFile(2);
+
+        System.out.println("Diameter test");
+        System.out.println(solarSystem.getDiameter(2));
 
     }
 }

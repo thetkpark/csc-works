@@ -60,7 +60,7 @@ public class Universe {
             raf.writeDouble(s.getDiameter());
             raf.writeDouble(s.getMaxTemperature());
             raf.writeDouble(s.getMinTemperature());
-
+            raf.close();
         } 
         catch (FileNotFoundException ex) {
             Logger.getLogger(Universe.class.getName()).log(Level.SEVERE, null, ex);
@@ -72,4 +72,64 @@ public class Universe {
         
     }
     
+    public void readStarFromFile(int i){
+        try {
+            RandomAccessFile readPointer = new RandomAccessFile(universeFile, "r");
+            
+            //Jump to record
+            long locationOf = 237 * (i-1);
+            readPointer.seek(locationOf); // move pointer to location we want to get
+            
+            System.out.println("");
+            int starNum = readPointer.readInt();
+            System.out.print(starNum + " ");
+            
+            boolean light = readPointer.readBoolean();
+            System.out.print(light? "Has light" : "No light");
+
+            byte[] material = new byte[20];
+            for(int j=0;j<10;j++){
+                readPointer.read(material, 0, 20);
+                String m = new String(material);
+                System.out.print(" " + m.trim());
+            }
+
+            double age = readPointer.readDouble();
+            System.out.print(age + " ");
+
+            double diameters = readPointer.readDouble();
+            System.out.print(diameters + " ");
+
+            double maxTemp = readPointer.readDouble();
+            System.out.print(maxTemp + " ");
+
+            double minTemp = readPointer.readDouble();
+            System.out.print(minTemp + " ");
+            
+            readPointer.close();
+        } 
+        catch (FileNotFoundException ex) {
+            Logger.getLogger(Universe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch(IOException ex){
+            Logger.getLogger(Universe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public double getDiameter(int i){
+        try {
+            RandomAccessFile pointer = new RandomAccessFile(universeFile, "r");
+            pointer.seek((i-1)*237 + 4 + 1 + 20*10 + 8);
+            double dia = pointer.readDouble();
+            pointer.close();
+            return dia;
+        } 
+        catch (FileNotFoundException ex) {
+            Logger.getLogger(Universe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch(IOException ex){
+            Logger.getLogger(Universe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
 }
