@@ -23,15 +23,15 @@ public class SavingAccount extends BankAccount {
     }
     
     public void addTransaction(Transaction transac){
-        Transaction[] transactions = super.getTransactions();
-		for(int i=0;i<transactions.length;i++){
-			if(transactions[i] == null){
-                transactions[i] = transac;
-                double amt = super.getBalance();
-				super.setBalance(amt+transac.getAmount());
-				break;
-			}
-		}
+        if(this.getBalance() + transac.getAmount() > 0){
+            super.addTransaction(transac);
+        }
+    }
+
+    public void endYear(){
+        double amount = getBalance() * getInterestRate() / 100;
+        Transaction interest = new Transaction(amount);
+        super.addTransaction(interest);
     }
 
     

@@ -5,7 +5,8 @@ public abstract class BankAccount {
 
     private Transaction[] transactions;
     private int accountNumber;
-    private double balance;
+	private double balance;
+	int transactionCount = 0;
 
     public BankAccount(){
         this(0.0, 0);
@@ -17,12 +18,10 @@ public abstract class BankAccount {
         this.transactions = new Transaction[100];
     }
 
-	public Transaction[] getTransactions() {
-		return this.transactions;
-	}
-
-	public void setTransactions(Transaction[] transactions) {
-		this.transactions = transactions;
+	public void printAllTransactions() {
+		for(int i=0;i<transactionCount;i++){
+			System.out.println(transactions[i].toString());
+		}
 	}
 
 	public int getAccountNumber() {
@@ -39,16 +38,22 @@ public abstract class BankAccount {
 
 	public void setBalance(double balance) {
 		this.balance = balance;
-    }
+	}
+	
     
     public void addTransaction(Transaction transac){
-		for(int i=0;i<transactions.length;i++){
-			if(transactions[i] == null){
-				transactions[i] = transac;
-				this.balance = this.balance + transac.getAmount();
-				break;
-			}
+		transac.setTransactionNumber(transactionCount);
+		transactions[transactionCount] = transac;
+		transactionCount++;
+		if(this.getBalance() + transac.getAmount() > 0){
+			this.setBalance(this.getBalance() + transac.getAmount());
 		}
-    }
+	}
+
+	public void addOnlyTransaction(Transaction transac){
+		transac.setTransactionNumber(transactionCount);
+		transactions[transactionCount] = transac;
+		transactionCount++;
+	}
 
 }

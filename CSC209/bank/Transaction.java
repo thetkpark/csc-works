@@ -9,9 +9,9 @@ public class Transaction {
     private Date date;
 	private double amount;
 	
-	public Transaction(int tn, Date date, double amount){
-		this.transactionNumber = tn;
-		this.date = date;
+	public Transaction(double amount){
+		this.transactionNumber = 0;
+		this.date = new Date();
 		this.amount = amount;
 	}
 
@@ -39,6 +39,13 @@ public class Transaction {
 		this.amount = amount;
 	}
 
+	public String toString() {
+		return "{" +
+			" transactionNumber='" + (getTransactionNumber() +1) + "'" +
+			", date='" + getDate() + "'" +
+			", amount='" + getAmount() + "'" +
+			"}";
+	}
 
 
 }
