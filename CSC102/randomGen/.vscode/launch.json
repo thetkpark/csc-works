@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - RandomGenerator",
+            "request": "launch",
+            "mainClass": "RandomGenerator",
+            "projectName": "randomGen_9db40c46"
+        }
+    ]
+}

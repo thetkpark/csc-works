@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="head">
+        <h2>Welcome to the HTML5 CSS3 Sport Club Reservation Page!!</h2>
+    </div>
+    <form>
+        <p>Member demographics</p>
+        <div class="top">
+            <div class="firstname">
+                Name: <input required type="text" name="firstname">
+            </div>
+            <div class="passcode">
+                Passcode: <input required type="password" name="passcode" minlength="6" maxlength="6" pattern="[0-9]*">
+            </div>
+            <div class="member">
+                Are you a Member?
+                <input required type="radio" name="member" checked>Member
+                <input required type="radio" name="member">Not member
+            </div>
+            <div class="email">
+                Email: <input required type="email" name="email">
+            </div>
+
+        </div>
+
+        <div class="bottom">
+            <div class="faculty">
+                Faculty: 
+                <select name="faculty">
+                    <option value="volvo">Badminton</option>
+                    <option value="saab">Squash</option>
+                    <option value="mercedes">Racquetball</option>
+                </select>
+            </div>
+            <div class="date-text">
+                Select a reservation date and time<br>
+            </div>
+            <div class="datetime">
+                <input type="date" name="date">
+                <input type="time" name="time"><br>
+            </div>
+            <div class="agree">
+                <input type="checkbox" name="agree">
+                I agree to the club's reservation policy<br>
+            </div>
+            <div class="summit">
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+      
+</body>
+</html>

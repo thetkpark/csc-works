@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CircleCaller",
+            "request": "launch",
+            "mainClass": "CircleCaller",
+            "projectName": "week6_e1c557fb"
+        }
+    ]
+}

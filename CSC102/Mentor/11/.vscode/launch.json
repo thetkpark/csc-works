@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Fibo",
+            "request": "launch",
+            "mainClass": "Fibo",
+            "projectName": "11_eaa423c7"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "11_eaa423c7"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Isogram",
+            "request": "launch",
+            "mainClass": "Isogram",
+            "projectName": "onmc_d2d0f06e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Sorting",
+            "request": "launch",
+            "mainClass": "Sorting",
+            "projectName": "onmc_d2d0f06e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InsideOut",
+            "request": "launch",
+            "mainClass": "InsideOut",
+            "projectName": "onmc_d2d0f06e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Rubik",
+            "request": "launch",
+            "mainClass": "Rubik",
+            "projectName": "onmc_d2d0f06e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Bisection",
+            "request": "launch",
+            "mainClass": "Bisection",
+            "projectName": "onmc_d2d0f06e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Airplane",
+            "request": "launch",
+            "mainClass": "Airplane",
+            "projectName": "onmc_d2d0f06e"
+        }
+    ]
+}

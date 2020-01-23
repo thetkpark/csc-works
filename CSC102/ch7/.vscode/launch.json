@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestInheritance",
+            "request": "launch",
+            "mainClass": "TestInheritance",
+            "projectName": "ch7_493973eb"
+        }
+    ]
+}

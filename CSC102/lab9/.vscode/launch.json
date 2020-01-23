@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ShoppingTest",
+            "request": "launch",
+            "mainClass": "ShoppingTest",
+            "projectName": "lab9_ddf90bf3"
+        }
+    ]
+}

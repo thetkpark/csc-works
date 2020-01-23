@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InterfaceTest",
+            "request": "launch",
+            "mainClass": "InterfaceTest",
+            "projectName": "lab8_6537008e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AbstractionTester",
+            "request": "launch",
+            "mainClass": "AbstractionTester",
+            "projectName": "lab8_6537008e"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "lab8_6537008e"
+        }
+    ]
+}

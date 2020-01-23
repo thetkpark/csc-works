@@ -1,0 +1,53 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InsideOut2",
+            "request": "launch",
+            "mainClass": "InsideOut2",
+            "projectName": "quiz2_e17821b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Rubik",
+            "request": "launch",
+            "mainClass": "Rubik",
+            "projectName": "quiz2_e17821b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InsideOut",
+            "request": "launch",
+            "mainClass": "InsideOut",
+            "projectName": "quiz2_e17821b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Sorting",
+            "request": "launch",
+            "mainClass": "Sorting",
+            "projectName": "quiz2_e17821b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Bisection",
+            "request": "launch",
+            "mainClass": "Bisection",
+            "projectName": "quiz2_e17821b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Isogram",
+            "request": "launch",
+            "mainClass": "Isogram",
+            "projectName": "quiz2_e17821b6"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Airplane",
+            "request": "launch",
+            "mainClass": "Airplane",
+            "projectName": "quiz_ddfb9dfc"
+        }
+    ]
+}

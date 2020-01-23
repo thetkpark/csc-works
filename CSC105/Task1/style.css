@@ -1,0 +1,90 @@
+.{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.nav{
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#nav-a{
+    margin-left: 2vw;
+}
+
+.center-image{
+    margin-top: 7vh;
+    display: flex;
+    justify-content: center;
+}
+
+.search-input{
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+}
+
+.seach-button{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#search-click{
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+
+input{
+    width: 40vw;
+    height: 30px;
+}
+
+
+center{
+    margin-top: 4vh;
+}
+
+.nav-bottom{
+    bottom: 0;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: #a5a5a5;
+}
+
+.nav-bottom-up{
+    margin-left: 1vw;
+}
+
+.nav-bottom-down{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-bottom-down-left{
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+}
+
+.nav-bottom-down-right{
+    margin-right: 1vw;
+    margin-bottom: 1vh;
+}
+
+#something{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#thailand{
+    margin-left: 10px;
+}
