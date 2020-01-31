@@ -11,22 +11,24 @@ public class Main {
     public static void main(String[] args) {
         Date startDate;
         Date endDate;
-        SimpleDateFormat f = new SimpleDateFormat("dd/MMM/yyy");
+        SimpleDateFormat f = new SimpleDateFormat("dd/MMM/yyy hh:mm:ss");
         String today;
 
         try {
             FileWriter fw = new FileWriter("EmpericalTest.csv");
             BufferedWriter bw = new BufferedWriter(fw);
             double sT, eT, x, n;
+            double startTime, finishTime;
             
-            n = 100000000.0;
+            n = 1000000000.0;
             startDate = new Date();
             today = f.format(startDate);
             bw.write("Start date for Linear is " + today + "\n");
             double sum=0;
-            for(double i=1;i<=n;i *= 10){
+            startTime = System.currentTimeMillis();
+            for(double i=1;i<=n;i *= 2){
                 bw.write(i+",");
-                for(int j=0;j<10;j++){
+                for(int j=0;j<20;j++){
                     sT = System.currentTimeMillis();
                     x = sumInLinear(1,i);
                     eT = System.currentTimeMillis();
@@ -35,9 +37,11 @@ public class Main {
                 }
                 bw.write(sum/10 + "\n");
             }
+            finishTime = System.currentTimeMillis();
             endDate = new Date();
             today = f.format(endDate);
             bw.write("End date for linear is " + today + "\n");
+            System.out.println("Finish running linear in " + (finishTime - startTime));
 
             
             n=100000;
@@ -45,9 +49,10 @@ public class Main {
             today = f.format(startDate);
             bw.write("Start date for Quadratic is " + today + "\n");
             sum = 0;
-            for(double i=1;i<=n;i *= 10){
+            startTime = System.currentTimeMillis();
+            for(double i=1;i<=n;i *= 2){
                 bw.write(i+",");
-                for(int j=0;j<10;j++){
+                for(int j=0;j<20;j++){
                     sT = System.currentTimeMillis();
                     x = sumInQuadratic(1,i);
                     eT = System.currentTimeMillis();
@@ -55,10 +60,13 @@ public class Main {
                     sum += (eT-sT);
                 }
                 bw.write(sum/10 + "\n");
+                System.out.println("Quadratic: " + i);
             }
+            finishTime = System.currentTimeMillis();
             endDate = new Date();
             today = f.format(endDate);
             bw.write("End date for Quadratic is " + today + "\n");
+            System.out.println("Finish running Quadratic in " + (finishTime - startTime));
 
 
             n=10000;
@@ -66,9 +74,10 @@ public class Main {
             today = f.format(startDate);
             bw.write("Start date for Cubic is " + today + "\n");
             sum = 0;
-            for(double i=1;i<=n;i *= 10){
+            startTime = System.currentTimeMillis();
+            for(double i=1;i<=n;i *= 2){
                 bw.write(i+",");
-                for(int j=0;j<10;j++){
+                for(int j=0;j<20;j++){
                     sT = System.currentTimeMillis();
                     x = sumInCubic(1,i);
                     eT = System.currentTimeMillis();
@@ -76,10 +85,13 @@ public class Main {
                     sum += (eT-sT);
                 }
                 bw.write(sum/10 + "\n");
+                System.out.println("Cubic: " + i);
             }
+            finishTime = System.currentTimeMillis();
             endDate = new Date();
             today = f.format(endDate);
             bw.write("End date for Cubic is " + today + "\n");
+            System.out.println("Finish running Cubic in " + (finishTime - startTime));
 
 
             n = 1000000000000000000.0;
@@ -87,9 +99,10 @@ public class Main {
             today = f.format(startDate);
             bw.write("Start date for Logarithm is " + today + "\n");
             sum = 0;
-            for(double i=1;i<=n;i *= 10){
+            startTime = System.currentTimeMillis();
+            for(double i=1;i<=n;i *= 2){
                 bw.write(i+",");
-                for(int j=0;j<10;j++){
+                for(int j=0;j<20;j++){
                     sT = System.currentTimeMillis();
                     x = sumInLogarithm(1,i);
                     eT = System.currentTimeMillis();
@@ -98,19 +111,22 @@ public class Main {
                 }
                 bw.write(sum/10 + "\n");
             }
+            finishTime = System.currentTimeMillis();
             endDate = new Date();
             today = f.format(endDate);
             bw.write("End date for Logarithm is " + today + "\n");
+            System.out.println("Finish Logarithm linear in " + (finishTime - startTime));
 
 
-            n = 100000000.0;
+            n = 1000000000.0;
             startDate = new Date();
             today = f.format(startDate);
             bw.write("Start date for n lg n is " + today + "\n");
             sum = 0;
-            for(double i=1;i<=n;i *= 10){
+            startTime = System.currentTimeMillis();
+            for(double i=1;i<=n;i *= 2){
                 bw.write(i+",");
-                for(int j=0;j<10;j++){
+                for(int j=0;j<20;j++){
                     sT = System.currentTimeMillis();
                     x = sumInNlgN(1,i);
                     eT = System.currentTimeMillis();
@@ -119,9 +135,11 @@ public class Main {
                 }
                 bw.write(sum/10 + "\n");
             }
+            finishTime = System.currentTimeMillis();
             endDate = new Date();
             today = f.format(endDate);
             bw.write("End date for n lg n is " + today + "\n");
+            System.out.println("Finish running n lg n in " + (finishTime - startTime));
 
             
             bw.close();
