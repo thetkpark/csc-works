@@ -19,7 +19,7 @@ public class Main {
             BufferedWriter bw = new BufferedWriter(fw);
             double sT, eT, x, n;
             double startTime, finishTime;
-            
+            System.out.println("v2");
             n = 10000000000.0;
             startDate = new Date();
             today = f.format(startDate);
@@ -45,7 +45,7 @@ public class Main {
             System.out.println("Finish running linear in " + (finishTime - startTime));
 
             
-            n=1000000;
+            n=100000;
             startDate = new Date();
             today = f.format(startDate);
             bw.write("Start date for Quadratic is " + today + "\n");
@@ -70,7 +70,7 @@ public class Main {
             System.out.println("Finish running Quadratic in " + (finishTime - startTime));
 
 
-            n=10000;
+            n=5001;
             startDate = new Date();
             today = f.format(startDate);
             bw.write("Start date for Cubic is " + today + "\n");
