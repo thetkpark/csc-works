@@ -109,7 +109,7 @@ public class Main {
                     bw.write((eT-sT)+",");
                     sum += (eT-sT);
                 }
-                bw.write(sum/10 + "\n");
+                bw.write(sum/20 + "\n");
             }
             finishTime = System.currentTimeMillis();
             endDate = new Date();
