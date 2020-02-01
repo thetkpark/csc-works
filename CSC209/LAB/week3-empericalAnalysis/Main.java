@@ -20,7 +20,7 @@ public class Main {
             double sT, eT, x, n;
             double startTime, finishTime;
             
-            n = 1000000000000.0;
+            n = 10000000000.0;
             startDate = new Date();
             today = f.format(startDate);
             bw.write("Start date for Linear is " + today + "\n");
@@ -36,6 +36,7 @@ public class Main {
                     sum += (eT-sT);
                 }
                 bw.write(sum/20 + "\n");
+                System.out.println("Linear: " + i);
             }
             finishTime = System.currentTimeMillis();
             endDate = new Date();
