@@ -107,14 +107,14 @@ public class Main {
             startTime = System.currentTimeMillis();
             for(double i=1;i<=n;i *=2){
                 bw.write(i+",");
-                for(int j=0;j<20;j++){
+                for(int j=0;j<10;j++){
                     sT = System.currentTimeMillis();
                     x = sumInLogarithm(1,i);
                     eT = System.currentTimeMillis();
                     bw.write((eT-sT)+",");
                     sum += (eT-sT);
                 }
-                bw.write(sum/20 + "\n");
+                bw.write(sum/10 + "\n");
                 sum = 0;
                 System.out.println("log: "+i);
             }
