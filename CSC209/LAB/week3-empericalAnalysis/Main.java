@@ -3,6 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 /**
  * Main
  */
@@ -36,6 +37,7 @@ public class Main {
                     sum += (eT-sT);
                 }
                 bw.write(sum/20 + "\n");
+                sum = 0;
                 System.out.println("Linear: " + i);
             }
             finishTime = System.currentTimeMillis();
@@ -44,7 +46,7 @@ public class Main {
             bw.write("End date for linear is " + today + "\n");
             System.out.println("Finish running linear in " + (finishTime - startTime));
 
-            
+
             n=100000;
             startDate = new Date();
             today = f.format(startDate);
@@ -61,6 +63,7 @@ public class Main {
                     sum += (eT-sT);
                 }
                 bw.write(sum/10 + "\n");
+                sum = 0;
                 System.out.println("Quadratic: " + i);
             }
             finishTime = System.currentTimeMillis();
@@ -86,6 +89,7 @@ public class Main {
                     sum += (eT-sT);
                 }
                 bw.write(sum/10 + "\n");
+                sum = 0;
                 System.out.println("Cubic: " + i);
             }
             finishTime = System.currentTimeMillis();
@@ -94,23 +98,25 @@ public class Main {
             bw.write("End date for Cubic is " + today + "\n");
             System.out.println("Finish running Cubic in " + (finishTime - startTime));
 
-
-            n = 1000000000.0;
+            
+            n = 1000000000000000000000000.0;
             startDate = new Date();
             today = f.format(startDate);
             bw.write("Start date for Logarithm is " + today + "\n");
             sum = 0;
             startTime = System.currentTimeMillis();
-            for(double i=1;i<=n;i *= 2){
+            for(double i=1;i<=n;i *=2){
                 bw.write(i+",");
-                for(int j=0;j<20;j++){
+                for(int j=0;j<10;j++){
                     sT = System.currentTimeMillis();
                     x = sumInLogarithm(1,i);
                     eT = System.currentTimeMillis();
                     bw.write((eT-sT)+",");
                     sum += (eT-sT);
                 }
-                bw.write(sum/20 + "\n");
+                bw.write(sum/10 + "\n");
+                sum = 0;
+                System.out.println("log: "+i);
             }
             finishTime = System.currentTimeMillis();
             endDate = new Date();
@@ -119,7 +125,7 @@ public class Main {
             System.out.println("Finish Logarithm linear in " + (finishTime - startTime));
 
 
-            n = 1000000000000.0;
+            n = 1000000000.0;
             startDate = new Date();
             today = f.format(startDate);
             bw.write("Start date for n lg n is " + today + "\n");
@@ -127,14 +133,16 @@ public class Main {
             startTime = System.currentTimeMillis();
             for(double i=1;i<=n;i *= 2){
                 bw.write(i+",");
-                for(int j=0;j<20;j++){
+                for(int j=0;j<10;j++){
                     sT = System.currentTimeMillis();
                     x = sumInNlgN(1,i);
                     eT = System.currentTimeMillis();
                     bw.write((eT-sT)+",");
                     sum += (eT-sT);
                 }
-                bw.write(sum/20 + "\n");
+                bw.write(sum/10 + "\n");
+                sum = 0;
+                System.out.println("n lg n: " + i);
             }
             finishTime = System.currentTimeMillis();
             endDate = new Date();
@@ -142,15 +150,15 @@ public class Main {
             bw.write("End date for n lg n is " + today + "\n");
             System.out.println("Finish running n lg n in " + (finishTime - startTime));
 
-            
+
             bw.close();
-        
+
         } catch (IOException e) {
-			e.printStackTrace();
-		}
-        
-        
-    
+            e.printStackTrace();
+        }
+
+
+
     }
 
     public static double sumInNlgN(double from, double to){
@@ -179,6 +187,11 @@ public class Main {
         double ans=0;
         for(double i=to;i>=from;i = i/2){
             ans = ans + i;
+            try {
+                TimeUnit.MILLISECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         return ans;
     }
