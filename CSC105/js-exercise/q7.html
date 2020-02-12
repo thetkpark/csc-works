@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h3 id="head"></h3>
+		<p id="display"></p>
+		<script>
+			const inputDay = prompt(`What's your day of birth`)
+			const inputDate = prompt(
+				"What's your date of birth (Ex: mm/dd/yyyy)"
+			)
+			const birthDate = new Date(inputDate)
+			let year = birthDate.getFullYear() + 1
+			let count = 0
+			const head = document.getElementById('head')
+			head.textContent = `${birthDate.toLocaleDateString(undefined, {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			})} is on ${inputDay} in these year`
+			while (count <= 60) {
+				birthDate.setFullYear(year)
+				if (
+					inputDay ==
+					birthDate.toLocaleDateString(undefined, {
+						weekday: 'long',
+					})
+				) {
+					const display = document.getElementById('display')
+					display.insertAdjacentHTML('beforeend', `${year} `)
+				}
+				year++
+				count++
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h2 id="display"></h2>
+		<script>
+			const input = prompt('Enter the value with unit')
+			const regex = /(\d*)(\s*)(\w*)/
+			const decom = regex.exec(input)
+			const value = parseFloat(decom[1])
+			const unit = decom[3]
+			console.log(unit)
+			let ans
+			switch (unit) {
+				case 'F':
+					ans = fToC(value)
+					break
+				case 'C':
+					ans = cToF(value)
+					break
+				case 'kg':
+					ans = kgToLbs(value)
+					console.log('efmkm')
+					break
+				case 'lbs':
+					ans = lbsToKg(value)
+					break
+				case 'Km':
+					ans = kmToMiles(value)
+					break
+				case 'miles':
+					ans = milesToKm(value)
+					break
+			}
+
+			const display = document.getElementById('display')
+			display.textContent = ans
+
+			function cToF(celsius) {
+				const cTemp = celsius
+				const cToFahr = (cTemp * 9) / 5 + 32
+				const message = cTemp + '\xB0C is ' + cToFahr + ' \xB0F.'
+				return message
+			}
+
+			function fToC(fahrenheit) {
+				const fTemp = fahrenheit
+				const fToCel = ((fTemp - 32) * 5) / 9
+				const message = fTemp + '\xB0F is ' + fToCel + '\xB0C.'
+				return message
+			}
+
+			function kgToLbs(kg) {
+				const lbs = kg * 2.204623
+				return `${kg} kg is ${lbs} lbs`
+			}
+
+			function lbsToKg(lbs) {
+				const kg = lbs * 0.4535924
+				return `${lbs} lbs is ${kg} kg`
+			}
+
+			function kmToMiles(km) {
+				const miles = km * 0.6213712
+				return `${km} km is ${miles} miles`
+			}
+
+			function milesToKm(miles) {
+				const km = miles * 1.609344
+				return `${miles} miles is ${km} km`
+			}
+		</script>
+	</body>
+</html>

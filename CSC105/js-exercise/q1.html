@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button id="butt">Click to get time</button>
+		<p id="display"></p>
+
+		<script>
+			const button = document.getElementById('butt')
+			document.addEventListener('click', () => {
+				const display = document.getElementById('display')
+				let date = new Date()
+				let str = `${date.toLocaleDateString(undefined, {
+					weekday: 'long',
+				})}, ${date.toLocaleString(undefined, {
+					hour12: false,
+					hour: '2-digit',
+					minute: '2-digit',
+					second: '2-digit',
+				})} Hours`
+				display.textContent = str
+			})
+		</script>
+	</body>
+</html>

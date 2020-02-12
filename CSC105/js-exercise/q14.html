@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h3 id="display"></h3>
+		<script>
+			const number = parseInt(prompt('How many?'))
+			const file = []
+			const regex = /.*\.(\w*)/
+			let extension = []
+			let count = []
+			for (let i = 0; i < number; i++) {
+				const temp = regex.exec(
+					prompt(`Enter file name number ${i + 1}`)
+				)
+				const exten = temp[1]
+				const index = extension.indexOf(exten)
+				if (index == -1) {
+					extension.push(exten)
+					count.push(1)
+				} else {
+					count[index] += 1
+				}
+			}
+
+			for (let i = 0; i < count.length; i++) {
+				const display = document.getElementById('display')
+				display.insertAdjacentHTML(
+					'beforeend',
+					`${count[i]} for .${extension[i]}<br>`
+				)
+			}
+		</script>
+	</body>
+</html>

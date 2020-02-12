@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h2 id="display"></h2>
+		<script>
+			let side = []
+			side[0] = parseFloat(prompt('Enter value of the first sides'))
+			side[1] = parseFloat(prompt('Enter value of the second sides'))
+			side[2] = parseFloat(prompt('Enter value of the third sides'))
+
+			const s = (side[0] + side[1] + side[2]) / 2
+			const area = Math.sqrt(
+				s * ((s - side[0]) * (s - side[1]) * (s - side[2]))
+			)
+			const display = document.getElementById('display')
+			display.textContent = area
+		</script>
+	</body>
+</html>

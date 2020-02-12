@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<label for="inp1">1st Number : </label>
+		<input type="number" name="inp1" id="inp1" /><br />
+		<label for="inp2">2nd Number : </label>
+		<input type="number" name="inp2" id="inp2" /><br />
+		<label for="inp3">3rd Number : </label>
+		<input type="number" name="inp3" id="inp3" /><br />
+		<button onClick="add()">Sum</button>
+		<button onClick="mul()">Multiply</button>
+		<button onClick="gcd()">GCD</button>
+		<p>The Result Is:</p>
+		<p id="display"></p>
+
+		<script>
+			const mul = () => {
+				const inp1 = parseFloat(document.getElementById('inp1').value)
+				const inp2 = parseFloat(document.getElementById('inp2').value)
+				const inp3 = parseFloat(document.getElementById('inp3').value)
+				ans = inp1 * inp2 * inp3
+				document.getElementById('display').innerHTML = ans
+			}
+			const add = () => {
+				const inp1 = parseFloat(document.getElementById('inp1').value)
+				const inp2 = parseFloat(document.getElementById('inp2').value)
+				const inp3 = parseFloat(document.getElementById('inp3').value)
+				ans = inp1 + inp2 + inp3
+				document.getElementById('display').innerHTML = ans
+			}
+
+			const gcd = () => {
+				const inp1 = parseFloat(document.getElementById('inp1').value)
+				const inp2 = parseFloat(document.getElementById('inp2').value)
+				const inp3 = parseFloat(document.getElementById('inp3').value)
+				let arr = [inp1, inp2, inp3]
+				let gcd
+				arr.sort(function(a, b) {
+					return a - b
+				})
+				for (let i = arr[0]; i >= 1; i--) {
+					if (arr[0] % i == 0 && arr[1] % i == 0 && arr[2] % i == 0) {
+						gcd = i
+						break
+					}
+				}
+				document.getElementById('display').innerHTML = gcd
+			}
+		</script>
+	</body>
+</html>

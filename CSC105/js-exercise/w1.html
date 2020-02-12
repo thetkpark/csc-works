@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h2 id="display"></h2>
+		<script>
+			let input = prompt('Enter the string')
+			const w1 = input.charAt(0)
+			const w2 = input.charAt(input.length - 1)
+			input = w2 + input.substring(1, input.length - 1) + w1
+			const display = document.getElementById('display')
+			display.textContent = input
+		</script>
+	</body>
+</html>
