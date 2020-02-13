@@ -25,8 +25,11 @@ public class Transpose extends DoublyLinkedList {
         
         // if (temp != null) {
         //     if(temp==head.next){
-        //         head.next = temp.next
-        //          head.prev = 
+        //         head.next = temp.next;
+        //         head.prev = temp;
+        //         temp.next.prev = temp.next;
+        //         temp.next = head;
+        //         head = temp;
         //     }
         //     else if(temp!=head && temp!=tail){ //temp is in the middle
         //         temp.prev.prev.next = temp;
@@ -36,9 +39,9 @@ public class Transpose extends DoublyLinkedList {
         //         temp.next.prev.prev = temp;
         //         temp.next = temp.next.prev;
         //     }
-        //     else if(temp==tail){
+            // else if(temp==tail){
 
-        //     }
+            // }
             
 
         // } else { //not found
