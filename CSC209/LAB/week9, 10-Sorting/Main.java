@@ -8,8 +8,9 @@ public class Main {
     public static void main(String[] args) {
         int[] data = { 30, 5, 60, 11, 4, 200, 99, 6, 01, 3, 67 };
 //         selectionSort(data);
-        insertionSort(data);
+//        insertionSort(data);
 //        bubbleSort(data);
+        quickSort(data, 0, data.length-1);
         printAll(data);
     }
 
@@ -56,6 +57,40 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static void quickSort(int[] data, int first, int last){
+        if(first >= last) return; //There is only one item -> No need to do anything //Base Case
+        int pivot = first;
+        int lower = first+1, upper = last;
+
+        while(lower <= upper){ // Lower is still on the left and upper on the right
+            while(lower < data.length && data[lower] < data[pivot]){
+                lower++; // Searching for a bigger (than pivot) value
+            }
+            while(upper >= 0 && data[upper] > data[pivot]){
+                upper--; //Search for a smaller (than pivot) value
+            }
+            if(lower < upper) {
+                swap(data, lower, upper); //If lower doesn't move pass the upper -> Swap lower and upper
+                lower++; upper--;
+            }
+            else {
+                lower++;
+            }
+        }
+
+        //Swap the pivot data
+        swap(data, pivot, upper);
+
+        quickSort(data, first, upper-1);
+        quickSort(data, upper+1, last);
+    }
+
+    public static void swap(int[] data, int x, int y){
+        int temp = data[x];
+        data[x] = data[y];
+        data[y] = temp;
     }
     
     
