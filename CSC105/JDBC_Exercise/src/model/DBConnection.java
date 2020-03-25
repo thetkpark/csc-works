@@ -1,8 +1,10 @@
+package model;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConnection {
-    public static Connection getMSSQLConnection(){
+    public static Connection getMSSQLConnection() throws Exception{
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String database = System.getenv("MSSQL_DB");
@@ -15,7 +17,7 @@ public class DBConnection {
         }
         catch(Exception e){
             e.printStackTrace();
+            throw e;
         }
-        return null;
     }
 }
