@@ -6,11 +6,12 @@ public class Main {
     // Sethanant Pipatpakorn 62130500230
     // Sorting 
     public static void main(String[] args) {
-        int[] data = { 30, 5, 60, 11, 4, 200, 99, 6, 01, 3, 67 };
+        int[] data = { 30, 5, 60, 11, 4, 200, 99, 6, 1, 3, 67 };
 //         selectionSort(data);
 //        insertionSort(data);
 //        bubbleSort(data);
-        quickSort(data, 0, data.length-1);
+//        quickSort(data, 0, data.length-1);
+        mergeSort(data, 0, data.length-1);
         printAll(data);
     }
 
@@ -86,6 +87,51 @@ public class Main {
         quickSort(data, first, upper-1);
         quickSort(data, upper+1, last);
     }
+
+    public static void mergeSort(int[] data, int first, int last){
+        if(first<last){ //Partitioning
+            int mid = (first+last)/2;
+            mergeSort(data, first, mid);
+            mergeSort(data, mid+1, last);
+            merge(data, first, last); //Cannot divide more -> Merge
+        }
+    }
+
+    public static void merge(int[] data, int first, int last){
+        int[] result = new int[last-first+1];
+        int mid = (first+last)/2;
+        int left = first;
+        int right = mid+1; //Point to first element of the right
+        int i = 0; //Pointer of the result
+        while(left<=mid && right<=last){ //If there is something left in the left and right
+            if(data[left] < data[right]){ //Left has something smaller
+                result[i] = data[left];
+                left++; //Move left pointer by one
+            }
+            else {
+                result[i] = data[right];
+                right++; //Move right pointer by 1
+            }
+            i++; //Finish then move the point to the next empyty slot
+        }
+        //Copy data that still remain in left or right
+        while(left<=mid){
+            result[i] = data[left];
+            left++;
+            i++;
+        }
+        while(right<=last){
+            result[i] = data[right];
+            right++;
+            i++;
+        }
+        //Copy the result array back to original array
+        for(i=0;i<=last-first;i++){
+            data[first+i] = result[i];
+        }
+    }
+
+
 
     public static void swap(int[] data, int x, int y){
         int temp = data[x];
