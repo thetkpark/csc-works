@@ -1,18 +1,23 @@
 /**
  * Main
  */
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Main {
 
     // Sethanant Pipatpakorn 62130500230
     // Sorting 
     public static void main(String[] args) {
         int[] data = { 30, 5, 60, 11, 4, 200, 99, 6, 1, 3, 67 };
+        int[] a = { 30, 5555, 460, 1111, 4, 200, 99, 606, 3781, 3, 167 };
 //         selectionSort(data);
 //        insertionSort(data);
 //        bubbleSort(data);
 //        quickSort(data, 0, data.length-1);
-        mergeSort(data, 0, data.length-1);
-        printAll(data);
+//        mergeSort(data, 0, data.length-1);
+        radixSort(a);
+        printAll(a);
     }
 
     public static void printAll(int[] data){
@@ -128,6 +133,40 @@ public class Main {
         //Copy the result array back to original array
         for(i=0;i<=last-first;i++){
             data[first+i] = result[i];
+        }
+    }
+
+    public static void radixSort(int[] data){
+        Queue<Integer>[] pile = new Queue[10]; //Create Queue for each digit
+        for(int i = 0 ;i<10;i++){
+            pile[i] = new LinkedList<>();
+        }
+
+        int max = data[0]; //Find max value
+        for(int i=0;i<data.length;i++){
+            if(max < data[i]) max = data[i];
+        }
+
+        int passes = 0; 
+        while(max>0){ //Determine how many digit of the max value (Number of passes)
+            max = max/10;
+            passes++;
+        }
+        int radix = 1;
+        for(int i=0;i<passes; i++){
+            for(int j=0; j<data.length; j++){ //Put data into each pile
+                int pileNumber = (data[j]/radix)%10;
+                pile[pileNumber].add(data[j]);
+            }
+
+            int dataCount = 0;
+            for(int pileNumber=0; pileNumber<10; pileNumber++){ //Put each pile back to the data
+                while(!pile[pileNumber].isEmpty()){
+                    data[dataCount] = pile[pileNumber].poll();
+                    dataCount++;
+                }
+            }
+            radix = radix * 10; //Move the radix by 1 digit
         }
     }
 
