@@ -171,7 +171,6 @@ public class Main {
     }
 
 
-
     public static void swap(int[] data, int x, int y){
         int temp = data[x];
         data[x] = data[y];
