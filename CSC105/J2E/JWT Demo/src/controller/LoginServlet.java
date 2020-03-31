@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 //
 //        }
         HttpSession session = request.getSession(true);
+        session.setMaxInactiveInterval(10);
         session.setAttribute("userid", "123456");
     }
 
@@ -42,6 +43,9 @@ public class LoginServlet extends HttpServlet {
 //        if(session == null){
 //            response.sendRedirect(request.getContextPath() + "/Login.jsp");
 //        }
+
+        HttpSession session = request.getSession(false);
+        session.invalidate();
 
     }
 }

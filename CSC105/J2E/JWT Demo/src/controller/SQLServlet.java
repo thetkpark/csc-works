@@ -24,20 +24,23 @@ public class SQLServlet extends HttpServlet {
         try{
             String userid = "";
             HttpSession session = request.getSession(false);
-            if(session==null) response.sendRedirect(request.getContextPath() + "/Login.jsp");
-            else userid = session.getAttribute("userid").toString();
-            System.out.println(userid);
+            if(session==null) response.sendRedirect(request.getContextPath() + "/login.html");
+            else {
+//                System.out.println("Not Null");
+                userid = session.getAttribute("userid").toString();
+                System.out.println(userid);
+            }
 
-//            PrintWriter out = response.getWriter();
-//            String f_name = request.getParameter("firstname");
-//            String l_name = request.getParameter("lastname");
-//            QueryModel q = new QueryModel();
-//            ResultSet result = q.SearchEmployee(f_name, l_name);
-//            result.next();
-//            String frist_name = result.getString("first_name");
-//            String last_name = result.getString("last_name");
-//            String hire_date = result.getString("hire_date");
-//            out.print(String.format("\"data\": \"%s %s %s\"", frist_name, last_name, hire_date));
+            PrintWriter out = response.getWriter();
+            String f_name = request.getParameter("firstname");
+            String l_name = request.getParameter("lastname");
+            QueryModel q = new QueryModel();
+            ResultSet result = q.SearchEmployee(f_name, l_name);
+            result.next();
+            String frist_name = result.getString("first_name");
+            String last_name = result.getString("last_name");
+            String hire_date = result.getString("hire_date");
+            out.print(String.format("\"data\": \"%s %s %s\"", frist_name, last_name, hire_date));
         }catch(Exception e){
             e.printStackTrace();
 
