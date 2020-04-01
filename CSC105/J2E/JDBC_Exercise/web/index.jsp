@@ -22,5 +22,8 @@
     <p>Provide the "emo_no", "firstname", "lastname", "gender", "birthdate", and "hire_date" arameters when make the request</p>
     <p>Return type: application/json</p>
     <p>Example: localhost:8080/JDBC_Exercise_war_exploded/SQLServlet?firstname=Someone&lastname=Somelastname&emp_no=9843121&birthdate=01-01-1999&gender=F&hire_date=01-01-1999</p>
+
+  <a href="login.jsp">Get to the login and search page</a>
+
   </body>
 </html>

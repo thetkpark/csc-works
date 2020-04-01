@@ -20,8 +20,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.1.0" level="application_server_libraries" />
-    <orderEntry type="library" name="mssql-jdbc-8.2.2.jre8" level="project" />
-    <orderEntry type="library" name="com.auth0:java-jwt:3.10.1" level="project" />
-    <orderEntry type="library" name="com.google.code.gson:gson:2.8.6" level="project" />
   </component>
 </module>

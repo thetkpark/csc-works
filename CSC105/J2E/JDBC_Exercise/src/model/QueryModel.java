@@ -44,4 +44,21 @@ public class QueryModel {
         }
     }
 
+    public String getPassword(String username){
+        try{
+            String query = String.format("SELECT password\n" +
+                    "FROM useraccount\n" +
+                    "WHERE username = '%s'", username);
+            preparedStatement = conn.prepareStatement(query);
+            ResultSet result = preparedStatement.executeQuery();
+            if(result.next()){
+                return result.getString("password");
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return "";
+    }
+
 }

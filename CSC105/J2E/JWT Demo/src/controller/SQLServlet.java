@@ -17,7 +17,17 @@ import java.sql.ResultSet;
 @WebServlet(name = "SQLServlet")
 public class SQLServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+//        try{
+//            String f_name = request.getParameter("firstname");
+//            String l_name = request.getParameter("lastname");
+//            QueryModel q = new QueryModel();
+//            String json = q.(f_name, l_name);
+//            PrintWriter out = response.getWriter();
+//            response.setContentType("application/json");
+//            out.print(json);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

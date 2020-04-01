@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -33,6 +34,7 @@ public class SQLServlet extends HttpServlet {
             e.printStackTrace();
             //For return error to client
             PrintWriter out = response.getWriter();
+            response.setContentType("application/json");
             response.setStatus(500);
             String error = e.toString();
             String json = String.format("\"success\": false, \"message\": \"%s\"", error);
@@ -42,11 +44,12 @@ public class SQLServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            HttpSession session = request.getSession(false);
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             QueryModel q = new QueryModel();
-            Object f_name = request.getParameter("firstname");
-            Object l_name = request.getParameter("lastname");
+            Object f_name = session.getAttribute("firstname");
+            Object l_name = session.getAttribute("lastname");
             ResultSet result = q.SearchEmployee(f_name.toString(), l_name.toString());
             Boolean empty = true;
             while (result.next()){
@@ -70,6 +73,7 @@ public class SQLServlet extends HttpServlet {
         }
         catch(Exception e){
             e.printStackTrace();
+            response.setContentType("application/json");
             //For return error to client
             PrintWriter out = response.getWriter();
             response.setStatus(500);
