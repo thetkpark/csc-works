@@ -22,9 +22,20 @@ public class Main {
         tree.insert(20);
         tree.insert(15);
         tree.insert(10);
+        tree.insert(200);
 
         tree.search(93);
         tree.search(110);
         tree.search(35);
+
+        System.out.print("Inorder: ");
+        tree.inorderTraversalResursion(tree.root);
+        System.out.print("\nPreorder: ");
+        tree.preorderTraversalResursion(tree.root);
+        System.out.print("\nPostorder: ");
+        tree.postorderTraversalResursion(tree.root);
+        System.out.print("\nBreathFirst: ");
+        tree.breathFirstTraversal(tree.root);
+
     }
 }

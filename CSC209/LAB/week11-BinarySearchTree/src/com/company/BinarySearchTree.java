@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
     Node root;
 
@@ -44,5 +47,41 @@ public class BinarySearchTree {
         }
         System.out.println(el + " is not found");
         return null;
+    }
+
+    public void inorderTraversalResursion(Node p){
+        if(p != null){
+            inorderTraversalResursion(p.left); // Finish left first
+            System.out.print(p.info + " "); // Visit node p
+            inorderTraversalResursion(p.right); //Then do the right side
+        }
+    }
+
+    public void preorderTraversalResursion(Node p){
+        if(p != null){
+            System.out.print(p.info + " "); // Visit node p
+            preorderTraversalResursion(p.left);
+            preorderTraversalResursion(p.right);
+        }
+    }
+
+    public void postorderTraversalResursion(Node p){
+        if(p != null){
+            preorderTraversalResursion(p.left);
+            preorderTraversalResursion(p.right);
+            System.out.print(p.info + " "); // Visit node p
+        }
+    }
+
+    public void breathFirstTraversal(Node p){
+        if(p == null) return;
+        Queue<Node> q = new LinkedList<>();
+        q.add(p);
+        while(!q.isEmpty()){
+            Node node = q.poll();
+            System.out.print(node.info + " ");
+            if(node.left != null) q.add(node.left);
+            if(node.right != null) q.add(node.right);
+        }
     }
 }
