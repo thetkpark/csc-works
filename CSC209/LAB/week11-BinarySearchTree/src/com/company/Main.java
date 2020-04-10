@@ -37,5 +37,10 @@ public class Main {
         System.out.print("\nBreathFirst: ");
         tree.breathFirstTraversal(tree.root);
 
+        System.out.println("\n\nBefore delete 100: " + tree.root.right.info);
+        tree.deleteByMerging(100);
+        System.out.println("After delete 100: " +tree.root.right.info);
+        System.out.println(tree.root.right.right.right.right.right.info);
+
     }
 }

@@ -84,4 +84,43 @@ public class BinarySearchTree {
             if(node.right != null) q.add(node.right);
         }
     }
+
+    public void deleteByMerging(int deleteValue){
+        Node p = this.root;
+        Node prev = null;
+        while(p!= null && p.info != deleteValue){ //Searching for node to delete
+            prev = p;
+            if(deleteValue >= p.info) p = p.right;
+            else p = p.left;
+        }
+        Node nodeForPrevToPointTo = p;
+        if(p == null) return; //No node is found to delete
+
+        //Node with no child
+        if(p.right == null && p.left == null) nodeForPrevToPointTo = null;
+
+        //Node with single child
+        else if(p.right == null) nodeForPrevToPointTo = p.left;
+        else if (p.left == null) nodeForPrevToPointTo = p.right;
+
+        //Node with two children
+        else {
+            //Search for rightmost node of the left subtree
+            Node temp = nodeForPrevToPointTo.left;
+            while(temp != null){
+                if(temp.right == null) break;
+                temp = temp.right;
+            }
+            temp.right = p.right; //Move right subtree to be marge with the rightmost node of the left subtree
+            nodeForPrevToPointTo = p.left; //Specify what prev should point to
+        }
+
+        //Re point the pointer of the parent's node
+        if(p == this.root){
+            this.root = nodeForPrevToPointTo;
+        }
+        else if(prev.left == p) prev.left = nodeForPrevToPointTo;
+        else prev.right = nodeForPrevToPointTo;
+    }
+
 }
