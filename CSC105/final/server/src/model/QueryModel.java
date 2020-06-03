@@ -33,6 +33,12 @@ public class QueryModel {
         return result;
     }
 
+    public ResultSet getAllPresentRequests() throws SQLException {
+        String query = "SELECT * FROM dbo.Requests\n" +
+                "WHERE start_time > CURRENT_TIMESTAMP";
+        return executeQuery(query);
+    }
+
     public void execute(String query) throws SQLException {
         try {
             preparedStatement = conn.prepareStatement(query);

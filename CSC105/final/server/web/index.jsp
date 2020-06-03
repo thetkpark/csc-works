@@ -14,21 +14,27 @@
     <title>SIT Room Reservation</title>
   </head>
   <body>
-  <h1>Student Room Reservation</h1>
+  <h1>Student Room Request</h1>
   <form action="RequestServlet" method="post">
     <label for="firstname">Firstname</label>
     <input class="form-control" id="firstname" type="text" name="firstname" placeholder="Sethanant" required><br>
     <label for="lastname">Lastname</label>
     <input class="form-control" id="lastname" type="text" name="lastname" placeholder="Pipatpakorn" required><br>
     <label for="stdID">Student ID</label>
-    <input class="form-control" id="stdID" type="text" name="studentid" placeholder="62130500230" required><br>
+    <input class="form-control" id="stdID" type="number" name="studentid" placeholder="62130500230" required><br>
     <label for="room">Room Number</label>
     <input class="form-control" id="room" type="text" name="room" placeholder="CB2301" required><br>
     <label for="start">Start DateTime</label>
     <input class="form-control" id="start" type="datetime-local" name="start" required> <br>
     <label for="end">End DateTime</label>
     <input class="form-control" id="end" type="datetime-local" name="end" required> <br>
-    <input type="submit" class="btn btn-primary"/>
+    <div id="something">
+      <div id="something2">
+        <a class="btn btn-outline-secondary" href="<%=request.getContextPath() + "/status.jsp"%>" role="button">Requests Status</a>
+        <div id="something3"></div>
+        <input type="submit" class="btn btn-primary"/>
+      </div>
+    </div>
   </form>
   </body>
   <style>
@@ -39,8 +45,17 @@
       align-items: center;
     }
     form{
-      margin-top: 7vh;
+      margin-top: 5vh;
       width: 30vw;
+    }
+
+    #something3{
+      width: 10%;
+    }
+
+    #something2{
+      display: flex;
+      justify-content: center;
     }
   </style>
 </html>

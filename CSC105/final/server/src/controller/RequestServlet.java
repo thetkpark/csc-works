@@ -30,7 +30,7 @@ public class RequestServlet extends HttpServlet {
         try{
             QueryModel q = new QueryModel();
             q.addNewRequest(firstname, lastname, studentID, room, start, end);
-            getServletContext().getRequestDispatcher("/Submited.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/submitted.jsp").forward(request, response);
         }
         catch(Exception e){
             e.printStackTrace();

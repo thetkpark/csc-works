@@ -15,8 +15,13 @@
         <servlet-name>UpdateStatusServlet</servlet-name>
         <servlet-class>controller.UpdateStatusServlet</servlet-class>
     </servlet>
-    
-    
+    <servlet>
+        <servlet-name>GetAllPresentServlet</servlet-name>
+        <servlet-class>controller.GetAllPresentServlet</servlet-class>
+    </servlet>
+    <!--    CSC105 - Final -->
+    <!--    Sethanant Pipatpakorn-->
+    <!--    62130500230-->
     <servlet-mapping>
         <servlet-name>RequestServlet</servlet-name>
         <url-pattern>/RequestServlet</url-pattern>
@@ -28,5 +33,9 @@
     <servlet-mapping>
         <servlet-name>UpdateStatusServlet</servlet-name>
         <url-pattern>/UpdateStatusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAllPresentServlet</servlet-name>
+        <url-pattern>/GetAllPresentServlet</url-pattern>
     </servlet-mapping>
 </web-app>

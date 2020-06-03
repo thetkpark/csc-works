@@ -33,7 +33,7 @@ public class UpdateStatusServlet extends HttpServlet {
                 String id = it.next();
                 q.updateRequestStatus(id, approver, status);
             }
-            response.sendRedirect(request.getContextPath()+"/requests.jsp");
+            response.sendRedirect(request.getContextPath()+"/advisor.jsp");
         }
         catch (Exception e){
             e.printStackTrace();
