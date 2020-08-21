@@ -7,6 +7,13 @@ public class Main {
         System.out.println(bruteForceGCD(60, 30));
         System.out.println(highSchoolGCD(60, 30));
         System.out.println(commonFactorGCD(64, 32));
+
+        int nPrime = 100;
+        int[] primeList = new int[nPrime];
+        prime(nPrime, primeList);
+        for (int a : primeList) {
+            System.out.print(a != 0 ? a + " " : "");
+        }
     }
 
     public static int bruteForceGCD(int m, int n) {
@@ -70,6 +77,29 @@ public class Main {
         }
         if (i < factors.length) {
             factors[i] = -1;
+        }
+    }
+
+    public static void prime(int n, int[] l) {
+        int[] A = new int[n + 1];
+        A[0] = 0;
+        A[1] = 0;
+        for (int p = 0; p < A.length; p++) {
+            A[p] = p;
+        }
+        // Get prime
+        for (int p = 2; p < Math.floor(Math.sqrt(n)); p++) {
+            int j = p * p; // The first number that p is a factor of
+            while (j <= n) {
+                A[j] = 0; // is a factor of p => 0 (not prime)
+                j += p;
+            }
+        }
+        for (int p = 2, i = 0; p <= n; p++) {
+            if (A[p] != 0) {
+                l[i] = A[p];
+                i++;
+            }
         }
     }
 }
