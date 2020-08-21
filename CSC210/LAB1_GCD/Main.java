@@ -2,7 +2,9 @@
  * Main
  */
 public class Main {
-
+    // Sethanant Pipatpakorn
+    // 62130500230
+    // 21 Aug 2020
     public static void main(String[] args) {
         System.out.println(bruteForceGCD(60, 30));
         System.out.println(highSchoolGCD(60, 30));
