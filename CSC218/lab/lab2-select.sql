@@ -1,3 +1,5 @@
+-- Sethanant Pipatpakorn 62130500230
+-- 24/08/2020
 -- 1 - 4 is SELECT * FOR each tables
 -- 5.) Find female employees. Show their name, date of birth, phone, and salary
 SELECT FIRSTNME, LASTNAME, BIRTHDATE, PHONENO, SALARY
