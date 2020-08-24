@@ -19,3 +19,16 @@ SELECT FIRSTNME, LASTNAME, JOB, SALARY
 FROM EMPLOYEE
 WHERE SALARY > 80000
 ORDER BY SALARY DESC;
+
+-- 7.) Show name, job, salary, and hiredate of the top three most salary employees
+SELECT FIRSTNME, LASTNAME, JOB, SALARY, HIREDATE
+FROM EMPLOYEE
+ORDER BY SALARY DESC
+FETCH FIRST 3 ROWS ONLY; -- SAME AS LIMIT 3
+
+-- 8.) Show name and their total income
+SELECT FIRSTNME, LASTNAME, SALARY, BONUS, COMM, SALARY + BONUS + COMM AS TOTAL
+FROM EMPLOYEE;
+
+-- 9.) SHow only person who earn the total income more than 100,000
+
