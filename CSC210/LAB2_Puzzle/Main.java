@@ -7,8 +7,8 @@ public class Main {
         char[][] puzzle = {
             {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'},
             {'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'},
-            {'e', 'f', 'g', 'h', 'i', 'e', 'k', 'l'},
-            {'a', 'b', 'c', 'd', 'e', 'l', 'g', 'h'},
+            {'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'},
+            {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'},
             {'a', 'p', 'e', 'e', 'm', 'l', 'g', 'h'},
             {'p', 'q', 'r', 's', 'm', 'a', 'r', 't'},
             {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'},
@@ -16,7 +16,7 @@ public class Main {
         };
 
         int[] position = new int[2];
-        position = search(puzzle, "peem");
+        position = search(puzzle, "smart");
         for(int i=0;i<2;i++){
             System.out.print(position[i] + " ");
         }
@@ -30,7 +30,7 @@ public class Main {
     public static int[] search(char[][] a, String key){
         int[] location = { -1, -1 };
         for(int row=0; row < a.length; row++){
-            for(int i=0; i < a.length - key.length(); i++){
+            for(int i=0; i <= a.length - key.length(); i++){
                 // Horizontal Search
                 // i point for each colume
                 int j = 0; //j is pointer for key
@@ -46,7 +46,7 @@ public class Main {
         }
 
         for(int col=0; col < a.length; col++){
-            for(int i=0; i < a.length - key.length(); i++){
+            for(int i=0; i <= a.length - key.length(); i++){
                 // Verticle Search
                 // i point within a row
                 int j = 0; //j is pointer for key
