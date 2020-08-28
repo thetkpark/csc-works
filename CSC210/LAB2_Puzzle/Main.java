@@ -46,7 +46,7 @@ public class Main {
         }
 
         for(int col=0; col < a.length; col++){
-            for(int i=0; i <= a.length - key.length(); i++){
+            for(int i=0; i <= a[0].length - key.length(); i++){
                 // Verticle Search
                 // i point within a row
                 int j = 0; //j is pointer for key
