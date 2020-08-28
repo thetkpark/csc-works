@@ -30,7 +30,7 @@ public class Main {
     public static int[] search(char[][] a, String key){
         int[] location = { -1, -1 };
         for(int row=0; row < a.length; row++){
-            for(int i=0; i <= a.length - key.length(); i++){
+            for(int i=0; i <= a[0].length - key.length(); i++){
                 // Horizontal Search
                 // i point for each colume
                 int j = 0; //j is pointer for key
