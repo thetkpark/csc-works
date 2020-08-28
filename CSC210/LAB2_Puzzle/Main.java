@@ -21,10 +21,10 @@ public class Main {
             System.out.print(position[i] + " ");
         }
         System.out.println("");
-        position = search(puzzle, "hello");
-        for(int i=0;i<2;i++){
-            System.out.print(position[i] + " ");
-        }
+        // position = search(puzzle, "hello");
+        // for(int i=0;i<2;i++){
+        //     System.out.print(position[i] + " ");
+        // }
     }
 
     public static int[] search(char[][] a, String key){
