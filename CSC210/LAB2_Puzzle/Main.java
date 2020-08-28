@@ -10,7 +10,7 @@ public class Main {
             {'e', 'f', 'g', 'h', 'i', 'e', 'k', 'l'},
             {'a', 'b', 'c', 'd', 'e', 'l', 'g', 'h'},
             {'a', 'p', 'e', 'e', 'm', 'l', 'g', 'h'},
-            {'p', 'q', 'r', 's', 't', 'o', 'v', 'w'},
+            {'p', 'q', 'r', 's', 'm', 'a', 'r', 't'},
             {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'},
             {'m', 'n', 'o', 'p', 'q', 'r', 's', 't'},
         };
@@ -47,8 +47,8 @@ public class Main {
 
         for(int col=0; col < a.length; col++){
             for(int i=0; i < a.length - key.length(); i++){
-                // Horizontal Search
-                // i point for each colume
+                // Verticle Search
+                // i point within a row
                 int j = 0; //j is pointer for key
                 while(j<key.length() && a[i+j][col] == key.charAt(j)){
                     j++;
