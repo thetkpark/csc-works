@@ -16,7 +16,7 @@ public class Main {
         };
 
         int[] position = new int[2];
-        position = search(puzzle, "fafr");
+        position = search(puzzle, "ehkn");
         for(int i=0;i<2;i++){
             System.out.print(position[i] + " ");
         }
@@ -71,6 +71,30 @@ public class Main {
                     location[1] = i;
                     return location;
                 }
+
+                // Diagonal top-left to bottom-right
+                j = 0;
+                while( row<=a.length - key.length() && i<=a[0].length - key.length() &&
+                j<key.length() && a[row+j][i+j] == key.charAt(j)){
+                    j++;
+                }
+                if(j == key.length()){
+                    location[0] = row;
+                    location[1] = i;
+                    return location;
+                }
+
+                // Diagonal bottom-right to top-left
+                // j = 0;
+                // while( row>=key.length()-1 && i>= &&
+                // j<key.length() && a[row-j][i-j] == key.charAt(j)){
+                //     j++;
+                // }
+                // if(j == key.length()){
+                //     location[0] = row;
+                //     location[1] = i;
+                //     return location;
+                // }
             }
         }
         return location;
