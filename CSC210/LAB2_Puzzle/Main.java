@@ -16,7 +16,7 @@ public class Main {
         };
 
         int[] position = new int[2];
-        position = search(puzzle, "thth");
+        position = search(puzzle, "fafr");
         for(int i=0;i<2;i++){
             System.out.print(position[i] + " ");
         }
