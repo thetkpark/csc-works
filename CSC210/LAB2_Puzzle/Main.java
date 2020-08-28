@@ -16,7 +16,7 @@ public class Main {
         };
 
         int[] position = new int[2];
-        position = search(puzzle, "sand");
+        position = search(puzzle, "thth");
         for(int i=0;i<2;i++){
             System.out.print(position[i] + " ");
         }
@@ -26,9 +26,8 @@ public class Main {
         int[] location = { -1, -1 };
         for(int row=0; row < a.length; row++){
             for(int i=0; i < a[0].length; i++){
-                // Horizontal Search
                 // i point for each colume
-                // Left to right
+                // Horizontally Left to right
                 int j = 0; //j is pointer for key
                 while(i<=a[0].length - key.length() 
                 && j < key.length() && a[row][i+j] == key.charAt(j)){
@@ -39,7 +38,7 @@ public class Main {
                     location[1] = i;
                     return location;
                 }
-                // Right to left
+                // Horizontally Right to left
                 j = 0; //j is pointer for key
                 while(i>=key.length()-1 && j<key.length() && a[row][i-j] == key.charAt(j)){
                     j++;
@@ -49,19 +48,26 @@ public class Main {
                     location[1] = i;
                     return location;
                 }
-            }
-        }
 
-        for(int col=0; col < a.length; col++){
-            for(int i=0; i <= a[0].length - key.length(); i++){
-                // Verticle Search
-                // i point within a row
-                int j = 0; //j is pointer for key
-                while(j<key.length() && a[i+j][col] == key.charAt(j)){
+                // Vertically Top to Bottom
+                j = 0;
+                while(row<=a.length - key.length() && 
+                j<key.length() && a[row+j][i] == key.charAt(j)){
                     j++;
                 }
                 if(j == key.length()){
-                    location[0] = col;
+                    location[0] = row;
+                    location[1] = i;
+                    return location;
+                }
+
+                // Vertically Bottom to Top
+                j = 0; //j is pointer for key
+                while(row>=key.length()-1 && j<key.length() && a[row-j][i] == key.charAt(j)){
+                    j++;
+                }
+                if(j == key.length()){
+                    location[0] = row;
                     location[1] = i;
                     return location;
                 }
