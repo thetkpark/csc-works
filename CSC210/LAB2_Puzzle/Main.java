@@ -16,7 +16,7 @@ public class Main {
         };
 
         int[] position = new int[2];
-        position = search(puzzle, "eea");
+        position = search(puzzle, "smck");
         for(int i=0;i<2;i++){
             System.out.print(position[i] + " ");
         }
