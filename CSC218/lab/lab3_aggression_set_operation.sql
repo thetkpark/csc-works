@@ -1,5 +1,7 @@
 -- 5 Questions for aggregate functions
 -- 5 Questions for set operations.
+-- Sethanant Pipatpakorn 62130500230
+-- 31 Aug 2020
 -- 1.) Show average salary of male and female employees.
 SELECT sex, DECIMAL(AVG(SALARY), 9, 2)
 FROM EMPLOYEE
