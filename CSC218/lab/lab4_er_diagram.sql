@@ -1,0 +1,74 @@
+CREATE TABLE Fish(
+    ID INTEGER NOT NULL,
+    name CHAR(20),
+    YearOfbirth DECIMAL(4),
+    color1 CHAR(10),
+    color2 CHAR(10),
+    color3 CHAR(10),
+    color4 CHAR(10),
+    Number INTEGER NOT NULL
+);
+
+CREATE TABLE Species(
+    Number INTEGER NOT NULL,
+    Title CHAR(20),
+    Habitat CHAR(20),
+    type CHAR(15)
+);
+
+CREATE TABLE Food (
+    title CHAR(10) NOT NULL,
+    quantity DECIMAL(8,2),
+    unit CHAR(10)
+);
+
+CREATE TABLE Eat(
+    ﬁsh_id INTEGER NOT NULL,
+    food_title CHAR(10) NOT NULL,
+    feedDatetime TIMESTAMP NOT NULL,
+    quantity DECIMAL(6,2),
+    unit CHAR(10)
+);
+
+CREATE TABLE Tank(
+    ID INTEGER NOT NULL,
+    length SMALLINT,
+    width SMALLINT,
+    depth SMALLINT,
+    waterlevel CHAR(5),
+    lastCleaningDate DATE
+);
+
+CREATE TABLE Swim(
+    TankID INTEGER NOT NULL,
+    FishID INTEGER NOT NULL,
+    startSwimDate DATE
+);
+
+ALTER TABLE Fish ADD CONSTRAINT "Fish_PK" PRIMARY KEY (ID);
+
+ALTER TABLE Species ADD CONSTRAINT "Species_PK" PRIMARY KEY (Number);
+
+ALTER TABLE Fish ADD CONSTRAINT "Fish_Species_FK" FOREIGN KEY (Number)
+
+REFERENCES Species(Number) ON DELETE CASCADE;
+
+ALTER TABLE Food ADD CONSTRAINT "Food_PK" PRIMARY KEY (title);
+
+ALTER TABLE Eat ADD CONSTRAINT "Eat_PK" PRIMARY KEY (feedDatetime,ﬁsh_id,food_title);
+
+ALTER TABLE Eat ADD CONSTRAINT "Fish_ID_FK" FOREIGN KEY (ﬁsh_id)
+REFERENCES Fish(ID) ON DELETE CASCADE;
+
+ALTER TABLE Eat ADD CONSTRAINT "Food_Title_FK" FOREIGN KEY
+(food_title) REFERENCES Food(title) ON DELETE CASCADE;
+
+ALTER TABLE Tank ADD CONSTRAINT "Tank_PK" PRIMARY KEY (ID);
+
+ALTER TABLE Swim ADD CONSTRAINT "Swim_PK" PRIMARY KEY (TankID,FishID);
+
+ALTER TABLE Swim ADD CONSTRAINT "TankID_FK" FOREIGN KEY (TankID)
+REFERENCES Tank(ID) ON DELETE CASCADE ;
+
+ALTER TABLE Swim ADD CONSTRAINT "FishID_FK" FOREIGN KEY (FishID)
+REFERENCES Fish(ID) ON DELETE CASCADE ;
