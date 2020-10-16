@@ -1,3 +1,5 @@
+import javax.swing.JFrame;
+
 /**
  * ClosestPair
  */
@@ -19,6 +21,14 @@ public class ClosestPair {
         int[] clostestPair = new int[2];
         clostestPair = findClosestPair(point);
         System.out.println(clostestPair[0] + " " + clostestPair[1]);
+
+        JFrame frame = new JFrame("Closest Pair Problem");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        XYPanel panel = new XYPanel(point, clostestPair);
+        frame.getContentPane().add(panel);
+        frame.pack();
+        frame.setVisible(true);
     }
 
     public static int[] findClosestPair(int[][] p){
