@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 /**
  * ClosestPair
  */
-public class ClosestPair {
+public class Main {
 
     public static void main(String[] args) {
         int[][] point = new int[10][2];
@@ -18,6 +18,7 @@ public class ClosestPair {
         point[8][0] = 400; point[8][1] = 360;
         point[9][0] = 50; point[9][1] = 190;
 
+        // Closest Pair
         int[] clostestPair = new int[2];
         clostestPair = findClosestPair(point);
         System.out.println(clostestPair[0] + " " + clostestPair[1]);
@@ -27,8 +28,39 @@ public class ClosestPair {
 
         XYPanel panel = new XYPanel(point, clostestPair);
         frame.getContentPane().add(panel);
+
+        // Convex Hull problem
+        int[][] boundary = findConvex(point);
+        panel.setConvex(boundary);
+
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public static int[][] findConvex(int[][] p){
+        int[][] boundary = new int[p.length][2];
+        int a,b,c, cOfPoint;
+        int count=0;
+        for(int i=0; i<p.length-1; i++){
+            for(int j=i+1; j<p.length; j++){
+                a = p[j][1] - p[i][1];
+                b = p[i][0] - p[j][0];
+                c = p[i][0] * p[j][1] - p[j][0] * p[i][1];
+                int moreThanC = 0, lessThanC = 0, k=0;
+                for(k=0; k<p.length; k++){
+                    cOfPoint = a*p[k][0] + b*p[k][1];
+                    if(cOfPoint >= c) moreThanC++;
+                    if(cOfPoint <= c) lessThanC++;
+                    if(moreThanC != (k+1) && lessThanC != (k+1)) break;
+                }
+                if(k==p.length){
+                    boundary[count][0] = i;
+                    boundary[count][1] = j;
+                    count++;
+                }
+            }
+        }
+        return boundary;
     }
 
     public static int[] findClosestPair(int[][] p){
