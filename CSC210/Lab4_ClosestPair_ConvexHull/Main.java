@@ -1,7 +1,7 @@
 import javax.swing.JFrame;
 
 /**
- * ClosestPair
+ * Sethanant Pipatpakorn 62130500230
  */
 public class Main {
 

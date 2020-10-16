@@ -3,6 +3,7 @@ import java.awt.Graphics;
 
 public class XYPanel extends javax.swing.JPanel {
     /**
+     * Sethanant Pipatpakorn 62130500230
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
