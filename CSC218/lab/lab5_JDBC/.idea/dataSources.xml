@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="SAMPLE@10.4.53.14" uuid="3aff1d45-d6f8-4e50-9443-b3bf8cdfa3cb">
+      <driver-ref>db2.11</driver-ref>
+      <jdbc-driver>com.ibm.db2.jcc.DB2Driver</jdbc-driver>
+      <jdbc-url>jdbc:db2://10.4.53.14:50000/SAMPLE</jdbc-url>
+    </data-source>
+  </component>
+</project>
