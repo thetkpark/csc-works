@@ -59,4 +59,16 @@ function mapInit () {
     }
     const customerMarker = new google.maps.Marker(customer)
     customerMarker.setMap(myMap)
+
+    google.maps.event.addListener(customerMarker, 'click', () => {
+        alert('Choose your home');
+    })
+    google.maps.event.addListener(customerMarker, 'dragend',function () {
+        const latCustomer = this.position.lat()
+        const lngCustomer = this.position.lng()
+        document.getElementById('latitude').value = latCustomer
+        document.getElementById('longitude').value = lngCustomer
+
+    })
+
 }
