@@ -36,3 +36,14 @@ UPDATE EMPLOYEE SET SALARY = 90000 WHERE EMPNO = '200340';
 SELECT e.EMPNO, e.FIRSTNME, e.SALARY, m.EMPNO, m.FIRSTNME, m.SALARY, DEPTNO
 FROM EMPLOYEE e, DEPARTMENT d, EMPLOYEE m
 WHERE e.WORKDEPT = d.DEPTNO AND d.DEPTNO = m.WORKDEPT AND  e.EMPNO = '200340';
+
+create trigger insert_back_after_deletation
+    after delete
+    on DEPARTMENT
+    referencing OLD as deletedRecord
+    for each row
+    INSERT INTO DEPARTMENT values (deletedRecord.DEPTNO, deletedRecord.DEPTNAME, deletedRecord.MGRNO, deletedRecord.ADMRDEPT, 'X');
+
+
+SELECT * FROM DEPARTMENT;
+DELETE FROM DEPARTMENT WHERE DEPTNO = 'J22';
