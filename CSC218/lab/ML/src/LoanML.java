@@ -1,6 +1,7 @@
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.functions.Logistic;
+import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 
@@ -46,6 +47,23 @@ public class LoanML {
             System.out.println(eval.toSummaryString());
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void predictDataSet (){
+        System.out.println("Predict the output");
+        Instance predictData;
+        double answer = 0;
+        Instances predictDataSets = getData(predictFile, classAttribute);
+        for(int i=0; i<predictDataSets.numInstances(); i++){
+            predictData = predictDataSets.instance(i);
+            try {
+                answer = classifier.classifyInstance(predictData);
+                System.out.println(answer);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 

@@ -7,5 +7,6 @@ public class Main {
 
 	    LoanML loan = new LoanML(9, trainingFile, testingFile, PredictFile);
 		loan.trainAndTestDataSet();
+		loan.predictDataSet();
     }
 }

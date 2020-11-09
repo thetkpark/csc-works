@@ -1,0 +1,20 @@
+% https://rpubs.com/anup_jana/logistic
+% https://github.com/anup-jana/R-Machine-Learning/tree/master/R%20Scripts/Datasets
+
+@relation creditRisk
+
+@attribute Married {Yes, No}
+@attribute Dependents {0, 1, 2, 3+}
+@attribute Education {Graduate, NotGraduate}
+@attribute Self_Employed {Yes, No}
+@attribute ApplicantIncome numeric
+@attribute CoapplicantIncome numeric
+@attribute LoanAmount numeric
+@attribute Loan_Amount_Term numeric
+@attribute Property_Area {Rural, Urban, Semiurban}
+@attribute Loan_Status {Y, N}
+
+@data
+
+Yes,1,NotGraduate,No,2653,1500,113,180,Rural,N
+Yes,0,Graduate,No,600000,34490000,165000000,1800000000,Urban,N
