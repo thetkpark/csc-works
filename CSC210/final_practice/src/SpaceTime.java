@@ -89,14 +89,22 @@ public class SpaceTime {
         }
         return founded;
     }
-//    public static int distributionCount2(int num[]){
-//        int max=Max(num);
-//        int freq[]=new int [max];
-//        for(int i=0;i< freq.length;i++){
-//
-//        }
-//
-//    }
+   public static int[] distributionCount2(int num[]){
+       int max=Max(num);
+       int freq[]=new int [max+1];
+       int result[]=new int [num.length];
+       for(int i=0;i< num.length;i++){
+            freq[num[i]]++;
+       }
+       for(int i=1;i<freq.length;i++){
+           freq[i]=freq[i]+freq[i-1];
+       }
+       for(int i=num.length-1;i>=0;i--){
+            result[freq[num[i]]-1] =num[i];
+            freq[num[i]]--;
+       }
+       return result;
+   }
     public static int Max(int num[]){
         int max=num[0];
         for(int i=0;i< num.length;i++){

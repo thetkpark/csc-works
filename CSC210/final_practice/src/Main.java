@@ -20,6 +20,8 @@ public class Main {
         int[] array = {5, 20, 10, 3, 4, 9 ,23, 50, 5, 9};
         int[] countingSortResult = SpaceTime.countingSort(array);
         int[] distributionCountResult = SpaceTime.distributionCount(array);
+        int[] distributeSortChingly = SpaceTime.distributionCount2(array);
+        printArray(distributeSortChingly);
 //        printArray(countingSortResult);
 //        printArray(distributionCountResult);
 
@@ -35,7 +37,7 @@ public class Main {
 
         String sentense = "Note is craving for some anan";
         String pattern = "anan";
-        System.out.println(SpaceTime.horspool(sentense, pattern));
+//        System.out.println(SpaceTime.horspool(sentense, pattern));
 
     }
 
