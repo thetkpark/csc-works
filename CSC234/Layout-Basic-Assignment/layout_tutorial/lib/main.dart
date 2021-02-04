@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
+// Sethanant Pipatpakorn 62130500230
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
 
   Column _buildButtonColumn(Color color, IconData icon, String label) {
     return Column(
