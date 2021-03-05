@@ -10,6 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.0.0
+  cloud_firestore: ^1.0.0 # new
+  firebase_auth: ^1.0.0   # new
+  provider: ^5.0.0-0      # new
 
 dev_dependencies:
   flutter_test:

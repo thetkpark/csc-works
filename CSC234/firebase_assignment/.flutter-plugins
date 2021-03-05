@@ -1,4 +1,10 @@
 # This is a generated file; do not edit or check into version control.
+cloud_firestore=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-1.0.0/
+cloud_firestore_web=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-1.0.0/
+firebase_auth=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-1.0.0/
+firebase_auth_web=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-1.0.0/
+firebase_core=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.0.0/
+firebase_core_web=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.0.0/
 path_provider=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.1/
 path_provider_linux=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.0/
 path_provider_macos=/Users/thetkpark/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.0/
