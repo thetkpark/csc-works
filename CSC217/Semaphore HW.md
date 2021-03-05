@@ -1,4 +1,5 @@
 ```pseudocode
+// Sethanant Pipatpakorn 62130500230
 semaphore {
 	valet = 4,
 	entrance = 2,
@@ -69,4 +70,10 @@ PaymentValet() {
 	}
 }
 ```
+
+5.7) 
+
+a.) The lower bound is 2 and the upper bound is 100
+
+b.) The lower bound is still 2 but the upper bound is depended on the number of process (2*process).
 
