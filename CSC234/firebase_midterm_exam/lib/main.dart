@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _form = GlobalKey<FormState>();
 
+  void _onFormChange() {
+    this._form.currentState!.validate();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +44,25 @@ class _HomePageState extends State<HomePage> {
             children: [
               TextFormField(
                 decoration: InputDecoration(labelText: 'Email'),
+                keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
+                validator: (email) => EmailValidator.validate(email!)
+                    ? null
+                    : "Invalid email address",
+                onChanged: (_) => _onFormChange(),
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Password'),
+                keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.done,
+                validator: (password) {
+                  RegExp regex = new RegExp(r"^\d+$");
+                  if (!regex.hasMatch(password!))
+                    return 'Password can only be number';
+                  else
+                    return null;
+                },
+                onChanged: (_) => _onFormChange(),
               ),
               SizedBox(
                 height: 20,
