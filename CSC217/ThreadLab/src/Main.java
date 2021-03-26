@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Main {
@@ -24,11 +25,13 @@ public class Main {
         th3.end = 1500000000;
         th4.start = 1500000001;
         th4.end = 2000000000;
+
         startTime = System.nanoTime();
 	    th1.start();
 	    th2.start();
 	    th3.start();
 	    th4.start();
+
 	    try{
 	        // Wait for the Thread to finish
             th1.join();
@@ -42,5 +45,39 @@ public class Main {
         } catch (InterruptedException ex) {
             System.out.println(ex.getMessage());
         }
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("What is x?");
+        int x = sc.nextInt();
+
+        MyThreadManager thAdd = new MyThreadManager();
+        MyThreadManagerExpo thExpo = new MyThreadManagerExpo();
+        MyThreadManagerFibo thFibo = new MyThreadManagerFibo();
+
+        thAdd.start = 1;
+        thAdd.end = 10000000;
+
+        thExpo.x = x;
+        thFibo.x = x;
+
+        thAdd.start();
+        thExpo.start();
+        thFibo.start();
+
+        try {
+            thAdd.join();
+            thExpo.join();
+            thFibo.join();
+
+            long answer = (x * thAdd.sum) + thExpo.result - thFibo.result;
+            System.out.println("Sum 1 to 10000000: " + thAdd.sum);
+            System.out.println(x + "* sum is: " + thAdd.sum);
+            System.out.println("2 powered by 10x is: " + thExpo.result);
+            System.out.println("Fib(x) is: " + thFibo.result);
+            System.out.println("f(x) = " + answer);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
