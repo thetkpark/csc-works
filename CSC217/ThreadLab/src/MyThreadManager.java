@@ -1,10 +1,10 @@
 public class MyThreadManager extends Thread {
-    Long start, end;
-    Long sum = 0L;
+    long start, end;
+    long sum = 0L;
 
     @Override
     public void run() {
-        for (int i=0; i<10; i++) {
+        for (long i = start; i<=end; i++) {
             sum += i;
         }
     }
