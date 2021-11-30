@@ -5,7 +5,7 @@
 
 ## HDFS
 
-- Hadoop **Distributed** File System![Screen Shot 2564-11-30 at 23.03.23](/Users/thetkpark/Desktop/Screen Shot 2564-11-30 at 23.03.23.png)
+- Hadoop **Distributed** File System![Screen Shot 2564-11-30 at 23.03.23](https://ghcdn.rawgit.org/thetkpark/csc-works/master/CSC371/img/Screen%20Shot%202564-11-30%20at%2023.03.23.png)
 - File is devided into blocks
 - Each block is replicate and store on difference server
 
@@ -78,7 +78,7 @@ There are 2 phase of operation
 
 - Everyone can read, audit, and create new block (by mining)
 
-  ![csc371-blockchain (anno)-32](/Users/thetkpark/Desktop/csc371-blockchain (anno)-32.png)
+  ![csc371-blockchain (anno)-32](https://ghcdn.rawgit.org/thetkpark/csc-works/master/CSC371/img/csc371-blockchain%20(anno)-32.png)
 
   ### Block Header
 
