@@ -362,3 +362,54 @@ Wallet is generated using cryptography
   **Example**
 
   - Lottery smart contract: People put money into the smart constract and it will determine the winner
+
+# เก็งข้อสอบ
+
+> Q: Namenode กับ Datanode ใน HDFS ต่างกันอย่างไร
+>
+> A: Namenode ทำหน้าที่ในการเป็นตัวกลางระหว่าง HDFS กับ client โดยไม่ว่าจะทำการอ่านหรือเขียนไฟล์ จะต้องติดต่อ Namenode ก่อน พูดง่ายๆว่าเป็นคนจัดการล่ะกัน ส่วน Datanode  ทำหน้าที่ในการเก็บข้อมูลหรือ block อย่างเดียว ไม่ได้ทำหน้าที่ในด้าน management
+
+> Q: ทำไม block ใน HDFS ถึงถูกเก็บไว้มากกว่า 1 ฉบับ และแต่ล่ะฉบับอยู่คนล่ะ node/server กัน
+>
+> A: เพื่อความพร้อมต่อการใช้งาน ในกรณีที่ node/server ที่เก็บข้อมูลพังไป ยังสามารถใช้อันที่เหลืออยู่ได้โดยไม่ทำใหังานติดขัด
+
+> Q: การที่ Client เขียนและอ่านไฟล์ภายใน HDFS จะต้องเริ่มจากทำอะไรก่อน
+>
+> A: ติดต่อ Namenode ก่อน
+
+> Q: Output ที่ได้จากการทำ Map คืออะไร
+>
+> A: Key, Value pair
+
+> Q: Map และ reduce สามารถทำงานแบบ parallel ได้ง่ายมาก
+>
+> A: True
+
+> Q: เมื่อ Mapper ทำงานเสร็จแล้ว เราจะสามารถบอกได้อย่างไรว่า key-value pair ตัวไหน จะไปอยู่ที่ reducer ตัวไหน
+>
+> A: Partitioning Key
+
+> Q: Yarn ใน Hadoop จะมอง server เป็นอย่างไร
+>
+> A: Each server contains many `Container`. Container เป็นสิ่งที่ใช้รัน job ต่างๆ โดยจะประกอบด้วย CPU และ memory
+
+> Q: ถ้า job ใน Hadoop ต้องการ input จาก HDFS
+
+### Cryptography
+
+> Q: What is the purpose of digital signature
+>
+> A: To ensure that the data is really coming from the expected person
+
+> Q: Select one or more FALSE statement(s)
+>
+> - Private key should be kept private
+> - Private key and public key are called asymmetric key
+> - Message encrypted by private key can be decrypt by public and private key ✅
+
+> Q: Security of the encryption depend of the length of the key
+>
+> A: True
+
+> Q: Why don't we encrypt the whole document in digital signature
+
