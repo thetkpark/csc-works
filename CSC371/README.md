@@ -362,4 +362,3 @@ Wallet is generated using cryptography
   **Example**
 
   - Lottery smart contract: People put money into the smart constract and it will determine the winner
-
