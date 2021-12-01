@@ -206,7 +206,7 @@ The Challenge about security
 
 Just like our real signature, it tell the integrity of the document. Ensure that this document really from this person.
 
-![img](https://miro.medium.com/max/2732/1*UCn_xX0AOLxMKTb0xOeWfg.png)
+![img](https://rawcdn.githack.com/thetkpark/csc-works/0afe9b5352f8de9814bc8830f1fab23fc3bbd892/CSC371/img/Screen%20Shot%202564-12-01%20at%2017.21.21.png)
 
 #### Q&A
 
