@@ -44,6 +44,8 @@ There are 2 phase of operation
 
 - Each container has some CPU and some memory
 
+- Try to run the job on the node that already has a required data (Locality)
+
   Has 3 main conponent
 
   1. **Global Resource Manager (RM)**
@@ -53,6 +55,40 @@ There are 2 phase of operation
   3. **Application Master (AM)** of each application/job/task
      - Talk with RM and NM for container to run the job
      - Detect job failure
+
+### Hadoop Scheduler
+
+> If only one job -> Use all resource in the cluster
+>
+> If many job -> Need to schedule these job to run
+
+1. **Hadoop Capacity Scheduler**
+   - Has multiple `queues`
+   - Each `queue` contain multiple jobs
+   - Each `queue` guaranteed some resource capacity of the cluster, For example
+     - Queue 1: 30% CPU, 40% RAM (of the cluster)
+     - Queue 2: 70% CPU, 60% RAM (of the cluster)
+     - High priority job go to Queue 2, Since it has more resource capacity -> Job will finish faster
+   - In the queue, FIFO is typically used. (Since the queue has many jobs in it, it has to schedule them)
+   - Queue is allowed to use more resource if they are free
+   - No pre-emption since the job is already running, let it finish
+   - Can have sub-queues (Queues within a queue)
+2. **Hadoop Fair Scheduler**
+   - Want to be FAIR to each job -> Each job should get the same amount of resources
+   - Devided resource of the cluster into `pools` (Usually 1 pool per user)
+   - Each `pool` has equal resource
+   - `Pool` can contain many job -> use scheduling algorithm in itself.
+   - It can have minimum share of the resource
+   - When the pool doesn't get minimum share for a while, it can take resource from another pool
+   - Allow pre-empting the job because getting a FAIR share is more important than finishing the job
+
+> Both algorithm usally used FIFO inside each queue/pool. Because while it's not optimal, it's hard to expect running time of the task before doing it. But they can estimate by looking at the job that has similar input size.
+
+#### Deal with Failure
+
+- Hearthbeats is used between NM, AM to RM to detect failure
+- RM failure  -> Use secondary RM (another server)
+- If node/server is running the job very low ->Run the same job in different node and see which one finish first
 
 # Blockchain
 
