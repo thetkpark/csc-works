@@ -36,6 +36,8 @@ There are 2 phase of operation
    - Process and merge the value with associated key
    - Write the output to HDFS
 
+Both operation can be run parallely with minimal effort. Just divide the data to each mapper and reducer
+
 ## Yarn
 
 - Resource manager on Hadoop
@@ -89,6 +91,140 @@ There are 2 phase of operation
 - Hearthbeats is used between NM, AM to RM to detect failure
 - RM failure  -> Use secondary RM (another server)
 - If node/server is running the job very low ->Run the same job in different node and see which one finish first
+
+# Scheduling
+
+> We have multiple task to run, but limited resource.
+>
+> What to run first -> Use scheduling algorithm
+>
+> **Goal** -> High resource utilization and high throughput (Don't take too long for a job)
+
+## Single Processor Scheduling
+
+Work with only single processor
+
+1. First-In-First-Out (FIFO)
+   - Run whatever task that came first
+   - No pre-emption
+   - Easiest but not very efficient
+2. Shortest Task First (STF)
+   - Do the task that use least amount of time
+   - It's optimal solution 
+   - No pre-emption
+3. Round-Robin 
+   - Each job got same amount of time to run the job
+   - If not finish, ไปต่อคิวใหม่
+   - Do pre-emption
+   - Suitable for interactive and quick response application
+
+## Dominant-Resource Fair Scheduling
+
+Work with multiple resource request (CPU and RAM and ...)
+
+Tried to ensure the fairness across many resource type
+
+1. Calculate `dominant resource` of each job 
+2. Find a value to balance `dominant resource` of every job
+
+# Consensus
+
+> Get every process to agree on the same value
+
+## Synchronous System Model
+
+- Each message is recieved within a time bound
+- Clock drift of each process is known
+
+## Asynchronous System Model
+
+- No bound time for sending and recieving message
+
+- Impossible to solve consensus problem
+- `Paxos` can solve it but not all
+- It guarantee safety and eventual liveness
+
+# Cryptography
+
+## Security Threats
+
+1. **Leakage**
+   - Access data that you should not access to
+2. **Tampering**
+   - Edit or delete data that you should have access
+3. **Vandalism**
+   - Interference the normal services without any gain
+
+## CIA Property
+
+The Challenge about security
+
+1. **Confidentiality** -> Prevent leakage
+2. **Integrity** -> Prevent tempering
+3. **Availability** -> Service/data should be ready to use at all time
+
+## Policies and Mechanisms
+
+- **Policy** 
+
+  - Indicate what make system secure
+  - Ex: File system should be read by only some member
+
+- **Mechanisms**
+
+  - How to achieve the policy
+  - Ex: Encryption
+
+  **Golden A's**
+
+  1. **Authentication** -> Verify whether user is really who they claim to be
+  2. **Authorization** -> What the user can do to our system
+  3. **Auditing** -> If the attack is happened, how does it happened. Trace the log
+
+## Keys and Encryption
+
+`Key` is a sequence of bytes that used to encrypt or decrypt. Longer key -> More secure
+
+### Symmantic Key
+
+![img](https://miro.medium.com/max/3372/1*bbCyiW35hBU3GiaiF4Qcmw.png)
+
+- Same key for encryption and decryption
+
+### Asymantic Key
+
+![img](https://www.ssl2buy.com/wiki/wp-content/uploads/2015/12/Asymmetric-Encryption.png)
+
+- or `Public-Private key`
+- Two keys is generated
+  - `Public Key` can be send to other
+  - `Private Key` must be kept to the owner
+- Message that encrypt with `public key` can only be decrypt with `private key`
+- Message that encrypt with `private key `can only be decrypt with `public key`
+
+## Digital Signature
+
+Just like our real signature, it tell the integrity of the document. Ensure that this document really from this person.
+
+![img](https://miro.medium.com/max/2732/1*UCn_xX0AOLxMKTb0xOeWfg.png)
+
+#### Q&A
+
+> Q: ทำไมไม่เข้ารหัสเอกสารแล้วส่งไปเลย
+>
+> A: ทำได้ แต่ว่าการเข้ารหัสไฟล์ใหญ่ๆ ใช้เวลานาน ถอดรหัสก็นาน เลยใช้ hash ซึ่งเหมือนเป็นตัวแทนของไฟล์นั้นมาแทน
+
+> Q: ทำไมถึงสามารถตรวจสอบได้ว่าไฟล์นี้มาจากคนนี้จริงๆ
+>
+> A: หลักการของ hash function คือ input เดียวกัน จะได้ค่า hash ออกมาเป็นอันเดียวกัน ดังนั้นเมื่อ ผู้รับเอกสารทำการ hash เอกสารนั้น แล้วค่า hash ออกมาเหมือนกันกับสิ่งที่ถอดรหัสออกมา จึงมั่นใจได้ว่าไฟล์นั้นเป็นไฟล์เดียวกันกับตอนที่ผู้เซ็นเอกสารทำการลงชื่อมา
+
+> Q: ทำไมต้องเข้ารหัสค่า hash ของ เอกสารด้วย private key ของคนส่ง
+>
+> A: เพื่อที่ว่าเวลาถอดรหัส จะต้องใช้ public key ของคนส่ง ถ้าสามารถถอดรหัสออกมาได้ จึงแสดงว่า public key และ private key นั้นเป็นคู่กัน ดังนั้นคนส่งจึงเป็นคนที่เราคาดหวังจริงๆ
+
+> Q: ทำไมต้องเข้ารหัสค่า hash ด้วย
+>
+> A: เพื่อป้องกันไม่ให้ค่า hash ถูกเปลี่ยนกลางทาง เพราะเมื่อเข้ารหัสแล้ว คนที่มี private key เท่านั้นจึงจะสามารถแก้ค่าใหม่ได้
 
 # Blockchain
 
@@ -183,6 +319,8 @@ There are 2 phase of operation
 [![Blockchain Forks Explained - Good Audience](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F2400%2F1*iy8AQhBp7lC-1sxYpsZAJQ.png&f=1&nofb=1)](https://cdn-images-1.medium.com/max/2400/1*iy8AQhBp7lC-1sxYpsZAJQ.png)
 
 - The chain is split
+- Can occure by two or more miners create the valid block at the same time
+- The longest chain win -> Eventually there is only one chain
 
 ## Bitcoin Wallet
 
