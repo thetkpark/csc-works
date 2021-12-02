@@ -147,7 +147,7 @@ Tried to ensure the fairness across many resource type
      - Potential leader chooce ballot id and broadcast to every processes
      - Every process will respond to the potential leader with highest ballot id
      - When the potential leader recieved majority of responses, it will become a leader of this round
-     - Note: If there is a value `v'` from last failed round, process will included in step 2 too.
+     - Note: If there is a value `v'` from last failed round, process will included in step 2 too. (Ensure safety)
   2. **Bill** -> Leader propose the value
      - Leader propose the value for this round (Can use `v'` if present)
      - Leader sent out the proposed value to every process
