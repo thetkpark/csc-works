@@ -139,10 +139,24 @@ Tried to ensure the fairness across many resource type
 ## Asynchronous System Model
 
 - No bound time for sending and recieving message
-
 - Impossible to solve consensus problem
 - `Paxos` can solve it but not all
 - It guarantee safety and eventual liveness
+- Each round of `Paxos` has unique ballot id and composed of 3 phases
+  1. **Election** -> Choose the leader
+     - Potential leader chooce ballot id and broadcast to every processes
+     - Every process will respond to the potential leader with highest ballot id
+     - When the potential leader recieved majority of responses, it will become a leader of this round
+     - Note: If there is a value `v'` from last failed round, process will included in step 2 too.
+  2. **Bill** -> Leader propose the value
+     - Leader propose the value for this round (Can use `v'` if present)
+     - Leader sent out the proposed value to every process
+     - When the process recieved the proposed value, it will log to disk and response with ok
+     - Note: The point of no return is when majority of process had logged the proposed value to the disk
+  3. **Law** -> Confirmation
+     - When leader received majority of `ok` message from previous phase, it sent the value v again to everynode
+     - Every process log that this round has ended.
+     - The process is finished
 
 # Cryptography
 
@@ -377,6 +391,10 @@ Wallet is generated using cryptography
 >
 > A: ติดต่อ Namenode ก่อน
 
+> Q: การเขียนหรืออ่าน block ใน HDFS จะต้องไปเอาข้อมูลที่ไหน
+>
+> A: Datanode
+
 > Q: Output ที่ได้จากการทำ Map คืออะไร
 >
 > A: Key, Value pair
@@ -394,6 +412,8 @@ Wallet is generated using cryptography
 > A: Each server contains many `Container`. Container เป็นสิ่งที่ใช้รัน job ต่างๆ โดยจะประกอบด้วย CPU และ memory
 
 > Q: ถ้า job ใน Hadoop ต้องการ input จาก HDFS
+>
+> A:
 
 ### Cryptography
 
