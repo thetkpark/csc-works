@@ -135,6 +135,7 @@ Tried to ensure the fairness across many resource type
 
 - Each message is recieved within a time bound
 - Clock drift of each process is known
+- Look at the psudo-code in slides for algorithm
 
 ## Asynchronous System Model
 
