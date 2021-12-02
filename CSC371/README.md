@@ -154,9 +154,9 @@ Tried to ensure the fairness across many resource type
      - When the process recieved the proposed value, it will log to disk and response with ok
      - Note: The point of no return is when majority of process had logged the proposed value to the disk
   3. **Law** -> Confirmation
-     - When leader received majority of `ok` message from previous phase, it sent the value v again to everynode
+     - When leader received majority of `ok` message from previous phase, it sent the value `v` again to every processes
      - Every process log that this round has ended.
-     - The process is finished
+     - The algorithm is finished
 
 # Cryptography
 
