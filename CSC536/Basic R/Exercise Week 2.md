@@ -46,7 +46,6 @@ for (s in dicesSum) {
   if (s==4) {
     got4 <- got4+1
   }
-  cat(i, sep="", ", ")
 }
 prob <- got4/900
 print(prob)
