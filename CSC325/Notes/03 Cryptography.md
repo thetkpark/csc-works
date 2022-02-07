@@ -44,6 +44,8 @@
 
     - Change position of the letter or bit
     - Does not change the individual letter or bit
+    
+    <img src="https://cdn.githubraw.com/thetkpark/csc-works/0a4a0b04/CSC325/Notes/Images/2565-02-07%2015.56.12.jpg" style="zoom:50%;">
 
 
 ## Attacking
