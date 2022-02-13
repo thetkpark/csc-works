@@ -57,7 +57,7 @@ ggplot(data=plotData, mapping = aes(x=year, y=pop, color=country)) +
        title = "Population trends of Thailand compare to others")
 ```
 
-![Population](https://cdn.githubraw.com/thetkpark/csc-works/4a17b5bb/CSC536/Basic%20R/img/w4-population.png)
+![Population](https://cdn.githubraw.com/thetkpark/csc-works/3828bf0d/CSC536/Basic%20R/img/w4-population-v2.png)
 
 ```R
 # GDP per cap

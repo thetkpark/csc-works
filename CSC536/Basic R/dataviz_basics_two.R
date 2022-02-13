@@ -240,7 +240,7 @@ ggplot(data=plotData, mapping = aes(x=year, y=pop, color=country)) +
   scale_color_brewer(palette="Dark2") +
   geom_smooth() + 
   geom_point() +
-  scale_y_log10() +
+  scale_y_log10(labels=scales::comma) +
   labs(x = "Year",
        y = "Population",
        title = "Population trends of Thailand compare to others")
