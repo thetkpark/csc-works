@@ -45,8 +45,6 @@ plotData <- rbind(EuropeAvgData, AfricaAvgData, AsiaAvgData, ASEANAvgData,
                   gap[gap$country == "China",], gap[gap$country == "India",])
 ```
 
-
-
 ```R
 # Population
 ggplot(data=plotData, mapping = aes(x=year, y=pop, color=country)) +
@@ -59,7 +57,7 @@ ggplot(data=plotData, mapping = aes(x=year, y=pop, color=country)) +
        title = "Population trends of Thailand compare to others")
 ```
 
-
+![Population](https://cdn.githubraw.com/thetkpark/csc-works/4a17b5bb/CSC536/Basic%20R/img/w4-population.png)
 
 ```R
 # GDP per cap
@@ -72,7 +70,7 @@ ggplot(data=plotData, mapping = aes(x=year, y=gdpPercap, color=country)) +
        title = "GDP per capita trends of Thailand compare to others")
 ```
 
-
+![GDP](https://cdn.githubraw.com/thetkpark/csc-works/4a17b5bb/CSC536/Basic%20R/img/w4-gdp.png)
 
 ```R
 # Life expectancy
@@ -85,3 +83,4 @@ ggplot(data=plotData, mapping = aes(x=year, y=lifeExp, color=country)) +
        title = "Life expectancy trends of Thailand compare to others")
 ```
 
+![Life](https://cdn.githubraw.com/thetkpark/csc-works/4a17b5bb/CSC536/Basic%20R/img/w4-life.png)
