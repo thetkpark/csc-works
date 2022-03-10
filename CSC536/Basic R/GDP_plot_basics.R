@@ -59,3 +59,43 @@ points(yrs, ukr_gdpCap, col = "dark blue")
 
 # Now try to use more analyses and more advanced plotting.
 # E.g., data of different regions/continents
+
+mergedGDP <- matrix(ncol = 44, nrow = 0)
+for (ccode in country_code$Country.Code){
+  mergedGDP <- rbind(mergedGDP, gdp[gdp$Country.Code == ccode,])  # binding by row
+}
+mergedGDP <- cbind(mergedGDP, country_code)
+
+avgGDPByIncomeGroup <- matrix(ncol = 3, nrow = 0)
+for (incomeGroup in unique(mergedGDP$IncomeGroup)) {
+  if (incomeGroup == "") {
+    next
+  }
+  for (yearCol in 5:44) {
+    avgGDPThisYear <- mean(mergedGDP[mergedGDP$IncomeGroup == incomeGroup, yearCol], na.rm = TRUE)
+    avgGDPByIncomeGroup <- rbind(avgGDPByIncomeGroup, data.frame(
+      IncomeGroup = c(incomeGroup), 
+      Year = c(1975+yearCol),
+      AvgGDP = c(avgGDPThisYear)
+      ))
+  }
+}
+
+library(ggplot2)
+
+# Plot lines graph of each income group
+ggplot(avgGDPByIncomeGroup, aes(x = Year, y = AvgGDP, group = IncomeGroup, color = IncomeGroup)) + 
+  geom_line() + geom_point() + scale_y_continuous(labels=scales::comma) +
+  labs(x = "Year", y = "Average GDP Per Capita (USD)", title = "Trend of Average GDP Per Capita of Income Group By Year")
+
+# Plot lines graph of each income group with log scale
+ggplot(avgGDPByIncomeGroup, aes(x = Year, y = AvgGDP, group = IncomeGroup, color = IncomeGroup)) + 
+  geom_line() + geom_point() + scale_y_log10(labels=scales::comma) +
+  labs(x = "Year", y = "Average GDP Per Capita (USD)", title = "Trend of Average GDP Per Capita of Income Group By Year")
+
+# box plot of distribution by year
+ggplot(avgGDPByIncomeGroup, aes(x = reorder(IncomeGroup, -AvgGDP, sum), y = AvgGDP, color = IncomeGroup)) + 
+  geom_boxplot() + scale_y_log10(labels=scales::comma) +
+  labs(x = "Income Group", y = "Average GDP Per Capita (USD)", title = "Average GDP Per Capita of Income Group By Year")
+
+  
