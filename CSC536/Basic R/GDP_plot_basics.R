@@ -60,12 +60,6 @@ points(yrs, ukr_gdpCap, col = "dark blue")
 # Now try to use more analyses and more advanced plotting.
 # E.g., data of different regions/continents
 
-mergedGDP <- matrix(ncol = 44, nrow = 0)
-for (ccode in country_code$Country.Code){
-  mergedGDP <- rbind(mergedGDP, gdp[gdp$Country.Code == ccode,])  # binding by row
-}
-mergedGDP <- cbind(mergedGDP, country_code)
-
 avgGDPByIncomeGroup <- matrix(ncol = 3, nrow = 0)
 for (incomeGroup in unique(mergedGDP$IncomeGroup)) {
   if (incomeGroup == "") {
@@ -98,4 +92,32 @@ ggplot(avgGDPByIncomeGroup, aes(x = reorder(IncomeGroup, -AvgGDP, sum), y = AvgG
   geom_boxplot() + scale_y_log10(labels=scales::comma) +
   labs(x = "Income Group", y = "Average GDP Per Capita (USD)", title = "Average GDP Per Capita of Income Group By Year")
 
+
+
+# For exmaple
+
+gdp <- read.csv("GDPperCap.csv")
+country_code <- read.csv("Metadata_Country.csv")
+
+mergedGDP <- matrix(ncol = 44, nrow = 0)
+for (ccode in country_code$Country.Code){
+  mergedGDP <- rbind(mergedGDP, gdp[gdp$Country.Code == ccode,])  # binding by row
+}
+mergedGDP <- cbind(mergedGDP, country_code)
+
+mergedGDP <- mergedGDP[1:10,] # select top 10 by alphabet
+tGDP <- matrix(ncol=4, nrow = 0) # Country.Name, Year, GDP, IncomeGroup
+for (country in mergedGDP$Country.Name) {
+  for (yearCol in 5:44) {
+    gdp <- mergedGDP[mergedGDP$Country.Name == country, yearCol]
+    tGDP = rbind(tGDP, data.frame(
+      Country = country,
+      Year = c(1975+yearCol),
+      GDP = gdp,
+      IncomeGroup = mergedGDP[mergedGDP$Country.Name == country, "IncomeGroup"]
+    ))
+  }
+}
+
+ggplot(tGDP, aes(x=Year, y=GDP, group=Country, color=Country)) + geom_line() + geom_point()
   
