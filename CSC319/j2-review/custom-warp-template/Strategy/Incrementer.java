@@ -1,8 +1,7 @@
 package Strategy;
 
-public class Incremeter extends CustomWarp{
-
-    public Incremeter() {
+public class Incrementer extends CustomWarp{
+    public Incrementer() {
         this.warpBehavior = new Increment();
     }
 }

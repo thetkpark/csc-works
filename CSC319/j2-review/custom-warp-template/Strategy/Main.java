@@ -2,15 +2,15 @@ package Strategy;
 
 public class Main {
     public static void main(String[] args) {
-        CustomWarp decremeter = new Decremeter();
-        CustomWarp incremeter = new Incremeter();
+        CustomWarp decrementer = new Decrementer();
+        CustomWarp incrementer = new Incrementer();
 
         System.out.println("-----Decrementer Warp Behavior-----");
-        decremeter.warpAt(1);
-        decremeter.warpAt(10);
+        decrementer.warpAt(1);
+        decrementer.warpAt(10);
 
-        System.out.println("-----Incremeter Warp Behavior-----");
-        incremeter.warpAt(1);
-        incremeter.warpAt(10);
+        System.out.println("-----Incrementer Warp Behavior-----");
+        incrementer.warpAt(1);
+        incrementer.warpAt(10);
     }
 }

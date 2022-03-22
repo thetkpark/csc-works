@@ -4,7 +4,7 @@
 >
 > Remark: There does not exist the Java main class here; therefore, do NOT include it in your diagram.
 
-
+<img src="https://rawcdn.githack.com/thetkpark/csc-works/0b0144f2ffbea213980cf0ef6b63f181a75d133e/CSC319/j2-review/img/template-plattern.png" alt="Template Pattern" style="zoom: 40%;" />
 
 ## Q2
 
@@ -58,7 +58,78 @@ public class Main {
 >
 > Remark: Be sure to include the Java main class to TEST your refactored program.
 
+```java
+// WarpBehavior
+public interface WarpBehavior {
+    public int warp(int n);
+}
 
+public class Decrement implements WarpBehavior {
+    @Override
+    public int warp(int n) {
+        return --n;
+    }
+}
+
+public class Increment implements WarpBehavior {
+    @Override
+    public int warp(int n) {
+        return ++n;
+    }
+}
+
+// CustomWarp
+public class CustomWarp {
+    protected WarpBehavior warpBehavior;
+
+    public void warpAt(int n) {
+        int warpedN = warpBehavior.warp(n);
+        System.out.println(n + " is warped to " + warpedN);
+    }
+
+    public void setWarpBehavior(WarpBehavior warpBehavior) {
+        this.warpBehavior = warpBehavior;
+    }
+}
+
+public class Decrementer extends CustomWarp {
+    public Decrementer() {
+        this.warpBehavior = new Decrement();
+    }
+}
+
+public class Incrementer extends CustomWarp{
+    public Incrementer() {
+        this.warpBehavior = new Increment();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CustomWarp decrementer = new Decrementer();
+        CustomWarp incrementer = new Incrementer();
+
+        System.out.println("-----Decrementer Warp Behavior-----");
+        decrementer.warpAt(1);
+        decrementer.warpAt(10);
+
+        System.out.println("-----Incrementer Warp Behavior-----");
+        incrementer.warpAt(1);
+        incrementer.warpAt(10);
+    }
+}
+```
+
+### Result
+
+```
+-----Decrementer Warp Behavior-----
+1 is warped to 0
+10 is warped to 9
+-----Incrementer Warp Behavior-----
+1 is warped to 2
+10 is warped to 11
+```
 
 ## Q5
 
@@ -66,7 +137,7 @@ public class Main {
 >
 > Remark: No need to include the Java main class in your class diagram.
 
-
+<img src="https://rawcdn.githack.com/thetkpark/csc-works/0b0144f2ffbea213980cf0ef6b63f181a75d133e/CSC319/j2-review/img/strategy-pattern.png" alt="Strategy Pattern UML" style="zoom:50%;" />
 
 ## Q6
 
