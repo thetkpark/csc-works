@@ -145,11 +145,15 @@ public class Main {
 
 ### Similarities between the Template and Strategy patterns
 
-
+Both design patterns tried to reduce code duplication by allowing behavior customization. In Template pattern, the abstract method is defined in abstract class which later be implemented by the subclass. Each subclass would implement different functionality of the method. Therefore, the behavior of the class is customized by picking the right subclass to create the object. In Strategy pattern, the behavior is abstracted and the real implementation of behavior is defined by the class which satisfy the interface. The behavior is stored in the class. This allow customization by setting different behavior which implements the behavior interface. 
 
 ### Differences between the Template and Strategy patterns
 
-
+The Strategy pattern store the behavior of the class in the attributes. This is the use of composition. While Template pattern use inheritance. The subclass which inherite the superclass implement their own implementation which define the behavior of the class.
 
 ### It is clear from this exercise that one can use Strategy to refactor the Template pattern, and vice versa. Discuss when one should be favored over the other
+
+The Template pattern is suitable for a class which allow the modification of behavior but doesn't allow modification of the main logic. Because the template method defined which methods to run in which order. While customization of behavior can be done by the subclass which implement its own abstract method, the main logic in the template method cannot be changed by the subclass.
+
+The Strategy pattern is suitable for varse number of behavior. It means these are lots of behavior available for the class. Moreover, it can support mulitple behavior due to the use of composition. Such as the Duck class example, Duck class has FlyBehavior and QuackBehavior. Which can be implemented in the Duck class easily by adding more attributes to the class. It encapsulate the real implementation in another class which satisfy the behavior interface.
 
