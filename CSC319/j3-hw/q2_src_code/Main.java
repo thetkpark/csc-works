@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,19 +13,26 @@ public class Main {
         albums.add(SampleData.sampleShortAlbum);
 
         // Using Stream API
-        Set<String> longTrackStream = findLongTracks(albums);
-        printFromListString(longTrackStream);
+        System.out.println("----Stream API----");
+        Set<String> longTracName = findLongTracks(albums.stream());
+        printFromListString(longTracName);
 
-        // Using
+        System.out.println();
+        longTracName = findLongTracks(SampleData.albums);
+        printFromListString(longTracName);
+
+        // Using the original code
+        System.out.println("\n----Traditional----");
+        longTracName = findLongTracks(albums);
+        printFromListString(longTracName);
     }
 
     public static void printFromListString(Set<String> l) {
         for(String str : l) System.out.println(str);
     }
 
-    public static Set<String> findLongTracks(List<Album> albums) {
+    public static Set<String> findLongTracks(Stream<Album> albums) {
         return albums.
-                stream().
                 flatMap(album -> album
                     .getTrackList()
                     .stream()
@@ -33,16 +41,16 @@ public class Main {
                 .collect(Collectors.toSet());
     }
 
-//    public static Set<String> findLongTracks(List<Album> albums) {
-//        Set<String> trackNames = new HashSet<>();
-//        for(Album album : albums) {
-//            for (Track track : album.getTrackList()) {
-//                if (track.getLength() > 60) {
-//                    String name = track.getName();
-//                    trackNames.add(name);
-//                }
-//            }
-//        }
-//        return trackNames;
-//    }
+    public static Set<String> findLongTracks(List<Album> albums) {
+        Set<String> trackNames = new HashSet<>();
+        for(Album album : albums) {
+            for (Track track : album.getTrackList()) {
+                if (track.getLength() > 60) {
+                    String name = track.getName();
+                    trackNames.add(name);
+                }
+            }
+        }
+        return trackNames;
+    }
 }
