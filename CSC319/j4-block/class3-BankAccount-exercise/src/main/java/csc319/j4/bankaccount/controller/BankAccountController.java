@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 
-@Controller
+@RestController
 @RequestMapping("/bank-account")
 public class BankAccountController {
     private final BankAccountRepository bankAccountRepository;
@@ -19,31 +19,31 @@ public class BankAccountController {
     };
 
     @PostMapping
-    public @ResponseBody boolean createBankAccount(@RequestBody BankAccount bankAccount) {
+    public boolean createBankAccount(@RequestBody BankAccount bankAccount) {
         return this.bankAccountRepository.addBankAccount(bankAccount);
     }
 
     @GetMapping("/{id}")
-    public @ResponseBody BankAccount getBankAccount(@PathVariable String id) {
+    public BankAccount getBankAccount(@PathVariable String id) {
         return this.bankAccountRepository.findById(id);
     }
 
     @PostMapping("/withdraw/{id}")
-    public @ResponseBody boolean withdraw(@PathVariable String id, @RequestParam double amount)  {
+    public boolean withdraw(@PathVariable String id, @RequestParam double amount)  {
         BankAccount account = this.bankAccountRepository.findById(id);
         if (account == null) return false;
         return account.withdraw(amount);
     }
 
     @PostMapping("/deposit/{id}")
-    public @ResponseBody boolean deposit(@PathVariable String id, @RequestParam double amount)  {
+    public boolean deposit(@PathVariable String id, @RequestParam double amount)  {
         BankAccount account = this.bankAccountRepository.findById(id);
         if (account == null) return false;
         return account.deposit(amount);
     }
 
     @PostMapping("/transfer/{id}")
-    public @ResponseBody boolean deposit(@PathVariable String id, @RequestParam double amount, @RequestParam String toId)  {
+    public boolean deposit(@PathVariable String id, @RequestParam double amount, @RequestParam String toId)  {
         BankAccount accountFrom = this.bankAccountRepository.findById(id);
         BankAccount accountTo = this.bankAccountRepository.findById(toId);
         if (accountFrom == null || accountTo == null) return false;
