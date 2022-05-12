@@ -2,6 +2,7 @@ package csc319.example.videospringdemo.controller;
 
 import csc319.example.videospringdemo.repository.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class VideoController {
     private final VideoRepository videoRepository;
 
     @Autowired // Tell Spring to do dependency injection to the constructor
-    public VideoController(VideoRepository videoRepository) {
+    public VideoController(@Qualifier("videoModelNoDuplicate") VideoRepository videoRepository) {
         this.videoRepository = videoRepository;
     }
 

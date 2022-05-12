@@ -1,23 +1,25 @@
 package csc319.example.videospringdemo.repository;
 
 import csc319.example.videospringdemo.controller.Video;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-@Repository // Tell Spring that this is a repository in Spring application (Can be AutoWired)
-public class VideoModel implements VideoRepository {
+@Repository
+public class VideoModelNoDuplicate implements VideoRepository {
     private Set<Video> videos = Collections.newSetFromMap(new ConcurrentHashMap<Video, Boolean>());
 
     @Override
     public boolean addVideo(Video v) {
-        return this.videos.add(v);
+        if (this.findByTitle(v.getName()).isEmpty()) {
+            return this.videos.add(v);
+
+        }
+        return false;
     }
 
     @Override
@@ -31,4 +33,5 @@ public class VideoModel implements VideoRepository {
                 .filter(vid -> vid.getName().contains(title))
                 .collect(Collectors.toList());
     }
+
 }
