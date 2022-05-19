@@ -1,0 +1,23 @@
+# docker-compose.yml
+# Run the db with 'docker-compose up'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: unsecurePassword
+    ports:
+      - 3306:3306
+    expose:
+      - "3306"
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      - PMA_HOST=db
+      - PMA_ARBITRARY=1
+      - PMA_USER=root
+      - PMA_PASSWORD=unsecurePassword
