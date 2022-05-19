@@ -33,11 +33,9 @@ public class Main {
 
     public static Set<String> findLongTracks(Stream<Album> albums) {
         return albums.
-                flatMap(album -> album
-                    .getTrackList()
-                    .stream()
-                    .filter(track -> track.getLength() > 60)
-                    .map(Track::getName))
+                flatMap(Album::getTracks)
+                .filter(track -> track.getLength() > 60)
+                .map(Track::getName)
                 .collect(Collectors.toSet());
     }
 
