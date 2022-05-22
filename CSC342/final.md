@@ -326,7 +326,7 @@
 
 > Connect them directly
 
-<img src="/Users/thetkpark/Library/Application Support/typora-user-images/Screen Shot 2565-05-22 at 14.07.54.png" alt="Screen Shot 2565-05-22 at 14.07.54" style="zoom:33%;" />
+<img src="https://img.cscms.me/ffnLLs6HPkadvZ3gVPZN.png" alt="Screen Shot 2565-05-22 at 14.07.54" style="zoom:33%;" />
 
 ##### `a` -> (`b` # `c`) 
 
@@ -397,7 +397,7 @@ Find the total cost per case
 > - CT = Cycle time เฉลี่ยของทุก case
 > - T = Cycle time เฉลี่ยของ task
 >
-> <img src="/Users/thetkpark/Library/Application Support/typora-user-images/Screen Shot 2565-05-22 at 15.25.25.png" alt="Screen Shot 2565-05-22 at 15.25.25" style="zoom:33%;" />
+> <img src="https://img.cscms.me/jPFZEP2JTVGJIcytGYAh.png" alt="Screen Shot 2565-05-22 at 15.25.25" style="zoom:33%;" />
 
 #### Example
 
@@ -467,7 +467,7 @@ Find the total cost per case
 
 > เช็คค่า `p`, `c`, `m`, `r` ไปตามลูกศร ว่า token ที่ออกมาจากสิ่งก่อนหน้า ถูกใช้ (มี task อยู่ใน log) โดยสิ่งด้านหลังรึเปล่า
 
-> <img src="/Users/thetkpark/Library/Application Support/typora-user-images/Screen Shot 2565-05-22 at 15.48.18.png" alt="Screen Shot 2565-05-22 at 15.48.18" style="zoom:40%;" />
+> <img src="https://img.cscms.me/FyCvlCWqLYFTJ0bIBC5d.png" alt="Screen Shot 2565-05-22 at 15.48.18" style="zoom:40%;" />
 >
 > - Message event สร้าง token ออกมาหนึ่งอัน (`p` = 1)
 > - Task a ใช้ token นั้นไป เนื่องจากเราเจอว่ามี task a อยู่ใน log (`c` = 1)
@@ -482,7 +482,7 @@ Find the total cost per case
 > - XOR gateway สร้าง token ออกมา 1 อัน (`p` = 1)
 > - Task b ใช้ token นั้นไป เพราะเราเจอ task b ใน log (`c` = 1)
 
-> <img src="/Users/thetkpark/Library/Application Support/typora-user-images/Screen Shot 2565-05-22 at 15.51.21.png" alt="Screen Shot 2565-05-22 at 15.51.21" style="zoom:40%;" />
+> <img src="https://img.cscms.me/aKIVvH7OMwBoRRqsQAOG.png" alt="Screen Shot 2565-05-22 at 15.51.21" style="zoom:40%;" />
 >
 > - XOR gateway สร้าง token ออกมา 1 อัน (`p` = 1)
 > - Task g ไม่ได้ใช้ token นั้น เพราะเราไม่เจอ task g ใน log 
